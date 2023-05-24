@@ -5087,6 +5087,16 @@ Main:Button("Auto Chest",function()
   StopTween(_G.TeleportIsland)
  end)
 
+ spawn(function()
+  pcall(function()
+   while wait(.1) do
+   if _G.Random_Auto then
+   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+   end
+   end
+   end)
+  end)
+
 Misc:Button("Pirates",function()
  		local args = {
 			[1] = "SetTeam",
@@ -5133,6 +5143,36 @@ end)
 Misc:Button("Color Haki",function()
  game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
 end)
+
+Shop:Toggle("Auto Random Fruit",_G.Random_Auto,function(value)
+  _G.Random_Auto = value
+  end)
+ 
+ spawn(function()
+  pcall(function()
+   while wait(.1) do
+   if _G.Random_Auto then
+   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+   end
+   end
+   end)
+  end)
+
+Shop:Toggle("Auto Store Fruit",_G.AutoStoreFruit,function(value)
+        _G.AutoStoreFruit = value
+    end)
+    
+    spawn(function()
+        pcall(function()
+            while wait(.1) do
+                if _G.AutoStoreFruit then
+                    for i,v in pairs(FruitList) do
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StoreFruit",v)
+                    end
+                end
+            end
+        end)
+    end)
 
 Shop:Button("Buy Black Leg",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
