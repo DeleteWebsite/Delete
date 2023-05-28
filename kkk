@@ -14,7 +14,7 @@ local ThunderImageUI = Instance.new("ImageLabel")
         ThunderToggleUI.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
         ThunderToggleUI.Size = UDim2.new(0, 50, 0, 50)
         ThunderToggleUI.Font = Enum.Font.SourceSans
-        ThunderToggleUI.Text = ""
+        ThunderToggleUI.Text = "rbxassetid://13577240304"
         ThunderToggleUI.TextColor3 = Color3.fromRGB(0, 0, 0)
         ThunderToggleUI.TextSize = 14.000
         ThunderToggleUI.Draggable = true
@@ -48,7 +48,7 @@ local tag
 local userinfo = {}
 
 _G.Key = ""
-_G.Discord = ""
+_G.Discord = 
 
 if game.CoreGui:FindFirstChild(_G.Key .."," .. _G.Discord) then
    game.CoreGui:FindFirstChild(_G.Key .."," .. _G.Discord):Destroy()
@@ -123,7 +123,7 @@ function Update:Window(text,logo,keybind)
 	local uihide = false
 	local abc = false
 	local logo = logo or 12511245920
-	local currentpage = ""
+	local currentpage = "rbxassetid://13577240304"
 	local keybind = keybind or Enum.KeyCode.RightControl
 	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 	
@@ -804,7 +804,7 @@ local postog12 = Instance.new("UIStroke")
  ImageLabel.BorderSizePixel = 0
  ImageLabel.Position = UDim2.new(-0.018, 0,-0.252, 0)
  ImageLabel.Size = UDim2.new(0, 45,0, 45)
- ImageLabel.Image = ""
+ ImageLabel.Image = "rbxassetid://13577240304"
  ImageLabel.ImageColor3 = Color3.fromRGB(224,224,224)
  
  Space.Name = "Space"
@@ -951,7 +951,7 @@ function main:Dropdown(text,option,callback)
  DropButton.BackgroundTransparency = 1.000
  DropButton.Size = UDim2.new(0, 370, 0, 31)
  DropButton.Font = Enum.Font.SourceSans
- DropButton.Text = ""
+ DropButton.Text = "rbxassetid://13577240304"
  DropButton.TextColor3 = Color3.fromRGB(0, 0, 0)
  DropButton.TextSize = 14.000
  
@@ -1155,7 +1155,7 @@ ImageLabel.BackgroundTransparency = 1.000
 ImageLabel.BorderSizePixel = 0
 ImageLabel.Position = UDim2.new(0, -5, 0, -5)
 ImageLabel.Size = UDim2.new(0, 45, 0, 45)
-ImageLabel.Image = ""
+ImageLabel.Image = "rbxassetid://13577240304"
 ImageLabel.ImageColor3 = Color3.fromRGB(224,224,224)
 
 Space.Name = "Space"
@@ -1542,7 +1542,7 @@ end
  AHEHE.Position = UDim2.new(0, 10, 0, 35)
  AHEHE.Size = UDim2.new(0, 355, 0, 5)
  AHEHE.Font = Enum.Font.SourceSans
- AHEHE.Text = ""
+ AHEHE.Text = "rbxassetid://13577240304"
  AHEHE.TextColor3 = Color3.fromRGB(0, 0, 0)
  AHEHE.TextSize = 14.000
  
@@ -1714,7 +1714,7 @@ end
  txtbtn.Position = UDim2.new(0, 1, 0, 1)
  txtbtn.Size = UDim2.new(0, 370, 0, 29)
  txtbtn.Font = Enum.Font.SourceSans
- txtbtn.Text = ""
+ txtbtn.Text = "rbxassetid://13577240304"
  txtbtn.TextColor3 = Color3.fromRGB(0, 0, 0)
  txtbtn.TextSize = 14.000
  
@@ -1725,7 +1725,7 @@ end
  RealTextbox.Position = UDim2.new(0, 260, 0, 4)
  RealTextbox.Size = UDim2.new(0, 100, 0, 24)
  RealTextbox.Font = Enum.Font.GothamSemibold
- RealTextbox.Text = ""
+ RealTextbox.Text = "rbxassetid://13577240304"
  RealTextbox.TextColor3 = Color3.fromRGB(225, 225, 225)
  RealTextbox.TextSize = 11.000
  RealTextbox.TextTransparency = 0
@@ -1733,7 +1733,7 @@ end
  RealTextbox.FocusLost:Connect(function()
   callback(RealTextbox.Text)
   if disappear then
-  RealTextbox.Text = ""
+  RealTextbox.Text = "rbxassetid://13577240304"
   end
   end)
  
