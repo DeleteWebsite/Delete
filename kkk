@@ -1,5 +1,5 @@
 do local GUI = game.CoreGui:FindFirstChild("SOMEXHUB");if GUI then GUI:Destroy();end;if _G.Color == nil then
-       _G.Color = Color3.fromRGB(178,34,34)
+       _G.Color = Color3.fromRGB(178,0,0)
    end 
 end
 
@@ -71,7 +71,7 @@ function Update:Window(text,logo,keybind)
 	local uihide = false
 	local abc = false
 	local logo = logo or 0
-	local currentpage = "rbxassetid://13577240304"
+	local currentpage = ""
 	local keybind = keybind or Enum.KeyCode.RightControl
 	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 	
