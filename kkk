@@ -4259,22 +4259,67 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
   end)
 end
 
-
-Main:Seperator(" Config ")
+Main:Seperator("⚙️ Config ⚙️")
 
 --// Setting Farm
 local bringfrec = 350
 local posX = 0
 local posY = 30
 local posZ = 0
-local TweenSpeed = 370
+local TweenSpeed = 350
 local WeaponList = {
-  "Melee","Devil Fruit","Sword"
+  "Melee","Devil Fruit","Sword","Gun"
 }
 
-Main:Dropdown("Select Weapon",WeaponList,{""},function(weaponfunc)
+Main:Dropdown("Select Weapon",WeaponList,function(weaponfunc)
   SelectWeapon = weaponfunc
   end)
+
+spawn(function()
+  while wait() do
+  pcall(function()
+    if SelectWeapon == "Melee" then
+    for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ToolTip == "Melee" then
+    if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+    SelectWeapon = v.Name
+    end
+    end
+    end
+    elseif SelectWeapon == "Sword" then
+    for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ToolTip == "Sword" then
+    if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+    SelectWeapon = v.Name
+    end
+    end
+    end
+    elseif SelectWeapon == "Devil Fruit" then
+    for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ToolTip == "Blox Fruit" then
+    if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+    SelectWeapon = v.Name
+    end
+    end
+    end
+    elseif SelectWeapon == "Gun" then
+    for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ToolTip == "Gun" then
+    if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+    SelectWeapon = v.Name
+    end
+    end
+    end
+    else
+      for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ToolTip == SelectWeapon then
+    SelectWeapon = v.Name
+    end
+    end
+    end
+    end)
+  end
+end)
 
 spawn(function()
   while wait() do
@@ -4325,7 +4370,7 @@ end)
 --// Fast Attack
 local AttackList = {"Slow", "Fast", "Super Fast"}
 _G.FastAttackDelay = "Fast"
-Setting:Dropdown("Fast Attack Mode", AttackList, {""},function(adl)
+Setting:Dropdown("Fast Attack Mode", AttackList,function(adl)
     _G.FastAttackDelay = adl
 end)
 spawn(function()
@@ -4352,20 +4397,27 @@ FarmTable = {
 "Behind"
 }
 
-Main:Dropdown("Select Method", FarmTable,{""},function(value)
-    AutoFarmType = value
+Main:Dropdown("Select Farm Method", {
+ "Behind","Below","Upper"
+},function(value)
+ _G.Method = value
 end)
+
 spawn(function()
-    while wait(.1) do
-        if AutoFarmType == "Above" then
-            Farm_Mode = CFrame.new(0,DisFarm,0) * CFrame.Angles(math.rad(-90),30,0)
-        elseif AutoFarmType == "Bellow" then
-            Farm_Mode = CFrame.new(0,DisFarm,0) * CFrame.Angles(math.rad(90),30,0)
-        elseif AutoFarmType == "Behind" then
-            Farm_Mode = CFrame.new(0,0,DisFarm) * CFrame.Angles(math.rad(0),0,0)
-        end
-    end
-end)
+ while wait() do
+ pcall(function()
+  if _G.Method == "Behind" then
+  MethodFarm = CFrame.new(0,0,_G.DistanceMob)
+  elseif _G.Method == "Below" then
+  MethodFarm = CFrame.new(0,-_G.DistanceMob,0) * CFrame.Angles(math.rad(90),0,0)
+  elseif _G.Method == "Upper" then
+  MethodFarm = CFrame.new(0,_G.DistanceMob,0) * CFrame.Angles(math.rad(-90),0,0)
+  else
+   MethodFarm = CFrame.new(0,_G.DistanceMob,0)
+  end
+  end)
+ end
+ end)
 
 local Module =  require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 
@@ -5898,7 +5950,7 @@ CheckAntiCheatBypass()
 
 Main:Dropdown("Select Mode Farm", {
  "Level","Mob Aura"
-},{""},function(value)
+},function(value)
  _G.Select_Mode_Farm = value
 end)
 
@@ -6544,7 +6596,7 @@ end
 
 Main:Seperator("👥 Other Mobs 👥")
 
-Main:Dropdown("Select Monster",tableMon,{""}, function(monsterlistfunc)
+Main:Dropdown("Select Monster",tableMon,function(monsterlistfunc)
   SelectMonster = monsterlistfunc
   end)
 
@@ -6690,7 +6742,7 @@ MaterialList = {
 }
 end
 
-Main:Dropdown('Select Material', MaterialList, {""}, function(matelist)
+Main:Dropdown('Select Material', MaterialList,function(matelist)
   SelectMaterial = matelist
   end)
 
@@ -6793,7 +6845,7 @@ end
 end
 end
 
-local selectedBoss = Main:Dropdown('Select Boss', Boss, {""},function(bosslist)
+local selectedBoss = Main:Dropdown('Select Boss', Boss,function(bosslist)
   SelectBoss = bosslist
   end)
 
