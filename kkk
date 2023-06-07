@@ -71,7 +71,7 @@ function Update:Window(text,logo,keybind)
 	local uihide = false
 	local abc = false
 	local logo = logo or 0
-	local currentpage = ""
+	local currentpage = "rbxassetid://13577240304"
 	local keybind = keybind or Enum.KeyCode.RightControl
 	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 	
@@ -1673,7 +1673,7 @@ task.wait()
 end
 end)
 
-Serring:Textbox("Distance", DisFarm, function(a)
+Setting:Textbox("Distance", DisFarm, function(a)
     DisFarm = a
 end)
 
