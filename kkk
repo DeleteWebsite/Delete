@@ -1,5 +1,5 @@
 do local GUI = game.CoreGui:FindFirstChild("SOMEXHUB");if GUI then GUI:Destroy();end;if _G.Color == nil then
-       _G.Color = Color3.fromRGB(255,0,0)
+       _G.Color = Color3.fromRGB((178,34,34)
    end 
 end
 
@@ -1517,7 +1517,7 @@ Main:Line()
 
 --// Setting Player
 
-Setting:Slider('Bring Mob',1, 1000,1000,function(value)
+Main:Slider('Bring Mob',1, 1000,1000,function(value)
   bringfrec = value
   end)
 
@@ -1606,7 +1606,7 @@ end)
 --// Fast Attack
 local AttackList = {"Slow", "Fast", "Super Fast"}
 _G.FastAttackDelay = "Fast"
-Setting:Dropdown("Fast Attack Mode", AttackList, {""},function(adl)
+Main:Dropdown("Fast Attack Mode", AttackList, {""},function(adl)
     _G.FastAttackDelay = adl
 end)
 spawn(function()
@@ -1673,11 +1673,11 @@ task.wait()
 end
 end)
 
-Setting:Textbox("Distance", DisFarm, function(a)
+Main:Textbox("Distance", DisFarm, function(a)
     DisFarm = a
 end)
 
-Setting:Toggle('Bypass Tp', BypassTP, function(vale)
+Main:Toggle('Bypass Tp', BypassTP, function(vale)
   BypassTP = vale
 end)
 
@@ -1745,7 +1745,7 @@ end)
 local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
 CamShake:Stop()
 
-Setting:Toggle("Bring Mob", true, function(bringfunc)
+Main:Toggle("Bring Mob", true, function(bringfunc)
   BringMobs = bringfunc
   end)
 
@@ -1797,7 +1797,7 @@ return false
 end
 end
 
-Setting:Toggle("Auto Set Spawn Point",true, function(setspawnfunc)
+Main:Toggle("Auto Set Spawn Point",true, function(setspawnfunc)
   AutoSetSpawn = setspawnfunc
   end)
 spawn(function()
@@ -1808,7 +1808,7 @@ spawn(function()
   end
   end)
 
-Setting:Toggle("Auto Buso Haki",true, function(busohakifunc)
+Main:Toggle("Auto Buso Haki",true, function(busohakifunc)
   BusoHaki = busohakifunc
   end)
 spawn(function()
