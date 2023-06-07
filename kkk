@@ -1,5 +1,5 @@
 do local GUI = game.CoreGui:FindFirstChild("SOMEXHUB");if GUI then GUI:Destroy();end;if _G.Color == nil then
-       _G.Color = Color3.fromRGB(178,0,0)
+       _G.Color = Color3.fromRGB(255,0,0)
    end 
 end
 
@@ -126,7 +126,7 @@ Top.ZIndex = 2
 	Name.Size = UDim2.new(0, 50, 0, 27)
 	Name.Font = Enum.Font.GothamSemibold
 	Name.Text = "Fai Fao"
-	Name.TextColor3 = Color3.fromRGB(35, 21, 233)
+	Name.TextColor3 = Color3.fromRGB(255, 0, 0)
 	Name.TextSize = 17.000
 
 	local Hub = Instance.new("TextLabel")
@@ -145,7 +145,7 @@ Top.ZIndex = 2
 	local Tab = Instance.new("Frame")
 	Tab.Name = "Tab"
 	Tab.Parent = Main
-	Tab.BackgroundColor3 = Color3.fromRGB(10, 9, 9)
+	Tab.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 	Tab.BackgroundTransparency = 0.4
 	Tab.Position = UDim2.new(0, 48, 0, 30)
 	Tab.Size = UDim2.new(0, 75, 0, 365)
@@ -1490,7 +1490,7 @@ ImageButton1.BorderSizePixel = 0
 ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton1.Size = UDim2.new(0, 50, 0, 50)
 ImageButton1.Draggable = true
-ImageButton1.Image = "http://www.roblox.com/asset/?id=13486422974"
+ImageButton1.Image = "http://www.roblox.com/asset/?id=13577240304"
 ImageButton1.MouseButton1Down:connect(function()
   game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
   game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
@@ -1517,7 +1517,7 @@ Main:Line()
 
 --// Setting Player
 
-Main:Slider('Bring Mob',1, 1000,1000,function(value)
+Setting:Slider('Bring Mob',1, 1000,1000,function(value)
   bringfrec = value
   end)
 
@@ -1606,7 +1606,7 @@ end)
 --// Fast Attack
 local AttackList = {"Slow", "Fast", "Super Fast"}
 _G.FastAttackDelay = "Fast"
-Main:Dropdown("Fast Attack Mode", AttackList, {""},function(adl)
+Setting:Dropdown("Fast Attack Mode", AttackList, {""},function(adl)
     _G.FastAttackDelay = adl
 end)
 spawn(function()
@@ -1677,12 +1677,12 @@ Main:Textbox("Distance", DisFarm, function(a)
     DisFarm = a
 end)
 
-Main:Toggle('Bypass Tp', BypassTP, function(vale)
+Setting:Toggle('Bypass Tp', BypassTP, function(vale)
   BypassTP = vale
 end)
 
 _G.FastAttack = true
-Main:Toggle('Fast Attack', _G.FastAttack, function(famobile)
+Setting:Toggle('Fast Attack', _G.FastAttack, function(famobile)
     _G.FastAttack = famobile
 end)
 
@@ -1745,7 +1745,7 @@ end)
 local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
 CamShake:Stop()
 
-Main:Toggle("Bring Mob", true, function(bringfunc)
+Setting:Toggle("Bring Mob", true, function(bringfunc)
   BringMobs = bringfunc
   end)
 
@@ -1797,7 +1797,7 @@ return false
 end
 end
 
-Main:Toggle("Auto Set Spawn Point",true, function(setspawnfunc)
+Setting:Toggle("Auto Set Spawn Point",true, function(setspawnfunc)
   AutoSetSpawn = setspawnfunc
   end)
 spawn(function()
@@ -1808,7 +1808,7 @@ spawn(function()
   end
   end)
 
-Main:Toggle("Auto Buso Haki",true, function(busohakifunc)
+Setting:Toggle("Auto Buso Haki",true, function(busohakifunc)
   BusoHaki = busohakifunc
   end)
 spawn(function()
