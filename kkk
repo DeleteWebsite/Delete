@@ -61,7 +61,7 @@ function Notification(text)
 game.StarterGui:SetCore("SendNotification", {
   Title = "Fai Fao Hub"; -- the title (ofc)
   Text = text; -- what the text says (ofc)
-  Icon = "rbxassetid://13486422974"; -- the image if u want.
+  Icon = "rbxassetid://13577240304"; -- the image if u want.
   Duration = 3; -- how long the notification should in secounds
 })
 end
@@ -71,7 +71,7 @@ function Update:Window(text,logo,keybind)
 	local uihide = false
 	local abc = false
 	local logo = logo or 0
-	local currentpage = ""
+	local currentpage = "rbxassetid://13577240304"
 	local keybind = keybind or Enum.KeyCode.RightControl
 	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 	
@@ -111,7 +111,7 @@ Top.ZIndex = 2
 	Logo.BackgroundTransparency = 1.000
 	Logo.Position = UDim2.new(0, 10, 0, 30)
 	Logo.Size = UDim2.new(0, 60, 0, 60)
-	Logo.Image = "rbxassetid://13486422974"
+	Logo.Image = "rbxassetid://13577240304"
 	Logo.Active = true
 	Logo.ZIndex = 8
 	
@@ -1648,7 +1648,7 @@ spawn(function()
 end)
 
 --// Fast Attack
-local AttackList = {"Slow", "Default", "Fast", "Super Fast"}
+local AttackList = {"Slow", "Fast", "Super Fast"}
 _G.FastAttackDelay = "Default"
 Main:Dropdown("Fast Attack Mode", AttackList, {""},function(adl)
     _G.FastAttackDelay = adl
@@ -1658,12 +1658,12 @@ spawn(function()
         if _G.FastAttackDelay then
             pcall(function()
                 if _G.FastAttackDelay == "Slow" then
-                    _G.FastAttackDelay = 0.9
+                    _G.FastAttackDelay = 0.5
                 elseif _G.FastAttackDelay == "Default" then
                     _G.FastAttackDelay = 0.5
                 elseif _G.FastAttackDelay == "Fast" then
                     _G.FastAttackDelay = 0.2
-                elseif _G.FastAttackDelay == "Super Fast (Risk)" then
+                elseif _G.FastAttackDelay == "Super Fast" then
                     _G.FastAttackDelay = 0.1
                 end
             end)
@@ -8313,7 +8313,7 @@ spawn(function()
 game.StarterGui:SetCore("SendNotification", {
         Title = "WingHub"; -- the title (ofc)
         Text = "Mirage not Found!"; -- what the text says (ofc)
-        Icon = "rbxassetid://13486422974"; -- the image if u want. 
+        Icon = "rbxassetid://13577240304"; -- the image if u want. 
         Duration = 3; -- how long the notification should in secounds
         })
                 if _G.MirageHop then
@@ -8327,7 +8327,7 @@ end)
 end)
 end
 
-Teleport:Seperator("🗺️ World - Server 🗺️")
+Teleport:Seperator(" World - Server ")
 
 Teleport:Button("Hop Server",function()
     local PlaceID = game.PlaceId
@@ -8407,7 +8407,7 @@ Teleport:Button("Travel to Third Sea", function()
 end) 
 
 
-    Teleport:Seperator("👤 NPC Teleport 👤")
+    Teleport:Seperator(" NPC Teleport ")
 
  if World1 then
         Teleport:Dropdown("Select NPC",{
