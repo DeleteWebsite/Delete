@@ -1,5 +1,5 @@
 do local GUI = game.CoreGui:FindFirstChild("SOMEXHUB");if GUI then GUI:Destroy();end;if _G.Color == nil then
-       _G.Color = Color3.fromRGB(35,21,233)
+       _G.Color = Color3.fromRGB(255,0,0)
    end 
 end
 
