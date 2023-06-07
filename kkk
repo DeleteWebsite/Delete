@@ -6484,13 +6484,9 @@ end)
 if World3 then
 Main:Seperator("🦴 Bones 🦴")
 
-Main:Toggle("Auto Farm Bone",AutoFarmBone, function(bonefarn)
+Main:Toggle("Auto Farm Bone",AutoFarmBone,function(bonefarn)
   AutoFarmBone = bonefarn
   CancelTween(AutoFarmBone)
-  if AutoFarmBone and SelectWeapon == nil then
-  Notification( "Please choose your weapon first. \nThanks.")
-  end
-  end)
 spawn(function()
   while task.wait(.1) do
   local boneframe = CFrame.new(-9508.5673828125, 142.1398468017578, 5737.3603515625)
@@ -6507,62 +6503,44 @@ spawn(function()
       Tween(boneframe)
     end
 
-    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-   if AutoFarmBone and StartMagnetBoneMon and (v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]") and (v.HumanoidRootPart.Position - PosMonBone.Position).magnitude <= 350 then
-   v.HumanoidRootPart.CFrame = PosMonBone
-   v.HumanoidRootPart.CanCollide = false
-   v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-   if v.Humanoid:FindFirstChild("Animator") then
-   v.Humanoid.Animator:Destroy()
-   end
-   sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-   end
-   end
-   end)
-  end)
- end)
-
-spawn(function()
- while wait() do
- if AutoFarmBone and World3 then
- pcall(function()
-  if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Domenic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
-  for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-  if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
-  if v.Humanoid.Health > 0 then
-  repeat wait()
-  AutoHaki()
-  EquipWeapon(_G.Select_Weapon)
-  StartMagnetBoneMon = true
-  v.HumanoidRootPart.CanCollide = false
-  v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-  PosMonBone = v.HumanoidRootPart.CFrame
-  topos(v.HumanoidRootPart.CFrame * MethodFarm)
-  game:GetService'VirtualUser':CaptureController()
-  game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-  until _G.Auto_Farm_Bone == false or not v.Parent or v.Humanoid.Health <= 0
+    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+    if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+    if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
+    repeat game:GetService("RunService").Heartbeat:wait()
+    EquipTool(SelectWeapon)
+    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+    v.HumanoidRootPart.Transparency = 1
+    v.Humanoid.JumpPower = 0
+    v.Humanoid.WalkSpeed = 0
+    v.HumanoidRootPart.CanCollide = false
+--v.Humanoid:ChangeState(11)
+--v.Humanoid:ChangeState(14)
+    FarmPos = v.HumanoidRootPart.CFrame
+    MonFarm = v.Name
+    Click()
+    if v.Humanoid.Health <= 0 and v.Humanoid:FindFirstChild("Animator") then
+    v.Humanoid.Animator:Destroy()
+    end
+    until not AutoFarmBone or not v.Parent or v.Humanoid.Health <= 0
+    end
+    end
+    end
+    for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+    if v.Name == "Reborn Skeleton [Lv. 1975]" then
+    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+    elseif v.Name == "Living Zombie [Lv. 2000]" then
+    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+    elseif v.Name == "Demonic Soul [Lv. 2025]" then
+    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+    elseif v.Name == "Posessed Mummy [Lv. 2050]" then
+    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+    end
+    end
+    end)
   end
   end
-  end
-  else
-   StartMagnetBoneMon = false
-  for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
-  if v.Name == "Reborn Skeleton [Lv. 1975]" then
-  topos(v.HumanoidRootPart.CFrame * MethodFarm)
-  elseif v.Name == "Living Zombie [Lv. 2000]" then
-  topos(v.HumanoidRootPart.CFrame * MethodFarm)
-  elseif v.Name == "Demonic Soul [Lv. 2025]" then
-  topos(v.HumanoidRootPart.CFrame * MethodFarm)
-  elseif v.Name == "Posessed Mummy [Lv. 2050]" then
-  topos(v.HumanoidRootPart.CFrame * MethodFarm)
-  end
-  end
-  topos(CFrame.new(-9466.72949, 171.162918, 6132.01514))
-  end
-  end)
- end
- end
- end)
+end)
 
 Main:Toggle("Auto Random Bone",_G.Auto_Trade_Bone,function(value)
  _G.Auto_Trade_Bone = value
