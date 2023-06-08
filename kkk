@@ -4447,10 +4447,9 @@ local posY = 30
 local posZ = 0
 local TweenSpeed = 350
 local WeaponList = {
-  "Melee","Devil Fruit","Sword","Gun"
-}
+  "Melee","Devil Fruit","Sword"
 
-Main:Dropdown("Select Weapon",WeaponList,{""},function(weaponfunc)
+Main:Dropdown("Select Weapon",WeaponList,function(weaponfunc)
   SelectWeapon = weaponfunc
   end)
 
@@ -4503,7 +4502,7 @@ end)
 --// Fast Attack
 local AttackList = {"Slow", "Default", "Fast", "Super Fast (Risk)"}
 _G.FastAttackDelay = "Default"
-Main:Dropdown("Fast Attack Mode", AttackList, {""},function(adl)
+Main:Dropdown("Fast Attack Mode", AttackList,function(adl)
     _G.FastAttackDelay = adl
 end)
 spawn(function()
@@ -4530,7 +4529,7 @@ FarmTable = {
 "Behind"
 }
 
-Main:Dropdown("Select Farm Type", FarmTable,{""},function(value)
+Main:Dropdown("Select Farm Type", FarmTable,function(value)
     AutoFarmType = value
 end)
 spawn(function()
@@ -6081,7 +6080,7 @@ end)
 
 Main:Dropdown("Select Mode Farm", {
  "Level Farm","No Quest","Near Farm Mode"
-},{""},function(value)
+},function(value)
  _G.Select_Mode_Farm = value
 end)
 
@@ -6735,7 +6734,7 @@ end
 
 Main:Seperator("👥 Other Mobs 👥")
 
-Main:Dropdown("Select Monster",tableMon,{""}, function(monsterlistfunc)
+Main:Dropdown("Select Monster",tableMon, function(monsterlistfunc)
   SelectMonster = monsterlistfunc
   end)
 
@@ -6881,7 +6880,7 @@ MaterialList = {
 }
 end
 
-Main:Dropdown('Select Material', MaterialList, {""}, function(matelist)
+Main:Dropdown('Select Material', MaterialList, function(matelist)
   SelectMaterial = matelist
   end)
 
@@ -6984,7 +6983,7 @@ end
 end
 end
 
-local selectedBoss = Main:Dropdown('Select Boss', Boss, {""},function(bosslist)
+local selectedBoss = Main:Dropdown('Select Boss', Boss,function(bosslist)
   SelectBoss = bosslist
   end)
 
@@ -7130,9 +7129,9 @@ Main:Seperator("🍃 Mastery Farm 🍃")
 --// Mastery Farm
 
 local MasteryType = {
-  'Quest', 'No Quest', 'Boss', 'Nearest'
+  'Quest','Nearest'
 }
-Main:Dropdown('Select type', MasteryType,{""},function(typefunc)
+Main:Dropdown('Select type', MasteryType,function(typefunc)
   TypeMastery = typefunc
   end)
 
@@ -14350,7 +14349,7 @@ RaceV4:Button("Teleport To Lever Pull",function()
   Tween(CFrame.new(28575.181640625, 14936.6279296875, 72.31636810302734))
 end)
 
-RaceV4:Button("Teleport To Acient One (Must Be in Temple Of Time!)",function()
+RaceV4:Button("Teleport To Acient One",function()
   Tween(CFrame.new(28981.552734375, 14888.4267578125, -120.245849609375))
 end)
    
@@ -14416,27 +14415,27 @@ RaceV4:Toggle("Disabled Inf Stairs", nil, function(value)
 	game.Players.LocalPlayer.Character.InfiniteStairs.Disabled = value
 end)
  
-  RaceV4:Button("Teleport Cyborg Door (Must Be in Temple Of Time!)",function()
+  RaceV4:Button("Teleport Cyborg Door",function()
   Tween(CFrame.new(28492.4140625, 14894.4267578125, -422.1100158691406))
   end)
   
-  RaceV4:Button("Teleport Fish Door (Must Be in Temple Of Time!)",function()
+  RaceV4:Button("Teleport Fish Door",function()
   Tween(CFrame.new(28224.056640625, 14889.4267578125, -210.5872039794922))
   end)
   
-  RaceV4:Button("Teleport Ghoul Door (Must Be in Temple Of Time!)",function()
+  RaceV4:Button("Teleport Ghoul Door",function()
   Tween(CFrame.new(28672.720703125, 14889.1279296875, 454.5961608886719))
   end)
   
-  RaceV4:Button("Teleport Human Door (Must Be in Temple Of Time!)",function()
+  RaceV4:Button("Teleport Human Door",function()
   Tween(CFrame.new(29237.294921875, 14889.4267578125, -206.94955444335938))
   end)
   
-  RaceV4:Button("Teleport Mink Door (Must Be in Temple Of Time!)",function()
+  RaceV4:Button("Teleport Mink Door",function()
   Tween(CFrame.new(29020.66015625, 14889.4267578125, -379.2682800292969))
   end)
   
-  RaceV4:Button("Teleport Sky Door (Must Be in Temple Of Time!)",function()
+  RaceV4:Button("Teleport Sky Door",function()
   Tween(CFrame.new(28967.408203125, 14918.0751953125, 234.31198120117188))
   end)
 
