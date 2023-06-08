@@ -7377,8 +7377,8 @@ spawn(function()
     end)
   end)
 
-KillPercent = 35
-Main:Slider('Kill Mobs At Health min ... %',1,35,100,function(KillPercentfunc)
+KillPercent = 100
+Main:Slider('Kill Mobs At Health min ... %',1,100,100, function(KillPercentfunc)
   KillPercent = KillPercentfunc
   end)
 
