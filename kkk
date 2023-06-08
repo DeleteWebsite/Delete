@@ -6943,7 +6943,7 @@ spawn(function()
   pcall(function()
     if _G.UseSkill then
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    if v.Name == MonFarm and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+    if v.Name == MonFarm and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 35 then
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(game.Players.LocalPlayer.Data.DevilFruit.Value)
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
@@ -7011,7 +7011,7 @@ spawn(function()
     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
     if v.Name == Ms then
     repeat game:GetService("RunService").Heartbeat:wait()
-    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 35 then
 
     _G.UseSkill = true
     else
@@ -7055,7 +7055,7 @@ spawn(function()
     for i,v in pairs (game.Workspace.Enemies:GetChildren()) do
     if v.Name == Ms and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
     repeat game:GetService("RunService").Heartbeat:wait()
-    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 35 then
     _G.UseSkill = true
     else
       _G.UseSkill = false
@@ -7088,7 +7088,7 @@ spawn(function()
     if v.Name and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 2000 then
     repeat game:GetService("RunService").Heartbeat:wait()
-    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 35 then
     _G.UseSkill = true
     else
       _G.UseSkill = false
@@ -7135,7 +7135,7 @@ spawn(function()
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
     if v.Name == selectBoss and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
     repeat game:GetService("RunService").Heartbeat:wait()
-    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 35 then
     _G.UseSkill = true
     else
       _G.UseSkill = false
@@ -7199,7 +7199,7 @@ spawn(function()
     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
     if v.Name == Ms then
     repeat game:GetService("RunService").Heartbeat:wait()
-    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 35 then
     EquipTool(CurrentEquipGun)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ)
     game:GetService("Players").LocalPlayer.Character[CurrentEquipGun].Cooldown.Value = 0
@@ -7245,7 +7245,7 @@ spawn(function()
     for i,v in pairs (game.Workspace.Enemies:GetChildren()) do
     if v.Name == Ms and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
     repeat game:GetService("RunService").Heartbeat:wait()
-    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 35 then
     EquipTool(CurrentEquipGun)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ)
     game:GetService("Players").LocalPlayer.Character[CurrentEquipGun].Cooldown.Value = 0
@@ -7279,7 +7279,7 @@ spawn(function()
     if v.Name and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 2000 then
     repeat game:GetService("RunService").Heartbeat:wait()
-    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 35 then
     EquipTool(CurrentEquipGun)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ)
     game:GetService("Players").LocalPlayer.Character[CurrentEquipGun].Cooldown.Value = 0
@@ -7329,7 +7329,7 @@ spawn(function()
     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
     if v.Name == selectBoss and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
     repeat game:GetService("RunService").Heartbeat:wait()
-    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 35 then
     EquipTool(CurrentEquipGun)
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     game:GetService("Players").LocalPlayer.Character[CurrentEquipGun].Cooldown.Value = 0
