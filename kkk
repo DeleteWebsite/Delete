@@ -7378,7 +7378,7 @@ spawn(function()
   end)
 
 KillPercent = 100
-Main:Slider('Kill Mobs At Health min ... %',1,100,100, function(KillPercentfunc)
+Main:Slider('Kill Mobs At Health min ... %',1,35,100, function(KillPercentfunc)
   KillPercent = KillPercentfunc
   end)
 
@@ -7386,7 +7386,7 @@ SkillZ = true
 SkillX = true
 SkillC = true
 SkillV = true
-SkillF = true
+SkillF = false
 Main:Toggle('Use Skill Z',SkillZ, function(zfunc)
   SkillZ = zfunc
   end)
