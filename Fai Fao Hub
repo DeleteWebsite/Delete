@@ -3711,7 +3711,7 @@
 	    end
 	end) 
 	    
-	Main:Toggle("White Sreen",_G.WhiteScreen,function(value)
+	Main:Toggle("White Screen",_G.WhiteScreen,function(value)
 	    _G.WhiteScreen = value
 	if _G.WhiteScreen == true then
 	    game:GetService("RunService"):Set3dRenderingEnabled(false)
