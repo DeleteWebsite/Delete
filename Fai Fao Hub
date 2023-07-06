@@ -3722,7 +3722,7 @@
 	
 	
 	Main:Seperator("BybassTp")
-	BypassTP = true
+	
 	
 	Main:Toggle('BybassTeleport', BypassTP, function(vale)
 	  BypassTP = vale
