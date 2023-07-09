@@ -4,10 +4,16 @@ _G.Logo = 13717478897
 
 local Evil = loadstring(game:HttpGet("https://newpchx2.000webhostapp.com/OBF_UI/UI_Edit_By_Ares.lua"))()
 local Win = library:Evil("MinGaming","",_G.Logo )
-
+--------------------------------------------
 local tab1 = Win:CraftTab('Main')
 local page1 = tab1:CraftPage('Main',1)
 local page2 = tab1:CraftPage('Main',2)
+-------------------------------------------
+local tab2 = Win:CraftTab('Player')
+local stats1 = tab2:CraftPage('Stats',1)
+local stats2 = tab2:CraftPage('Player',2)
+-------------------------------------------
+
 
 if game.PlaceId == 2753915549 then
         World1 = true
@@ -1683,6 +1689,152 @@ spawn(function()
 	end
     end)
 
+
+
+
+
+
+
+
+
+	stats1:Toggle("Auto Stats Kaitun",_G.Auto_Stats_Kaitun,function(value)
+	_G.Auto_Stats_Kaitun = value
+	end)
+	
+	
+	spawn(function()
+		while wait() do
+			pcall(function()
+				if _G.Auto_Stats_Kaitun then
+					if World1 then
+						local args = {
+							[1] = "AddPoint",
+							[2] = "Melee",
+							[3] = _G.Point
+							}
+							
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+					elseif World2 then
+						local args = {
+							[1] = "AddPoint",
+							[2] = "Melee",
+							[3] = _G.Point
+							}
+							
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+						local args = {
+							[1] = "AddPoint",
+							[2] = "Defense",
+							[3] = _G.Point
+							}
+							
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+					end
+				end
+			end)
+		end
+	end)
+	
+	stats1:Toggle("Auto Stats Melee",_G.Auto_Stats_Melee,function(value)
+	 _G.Auto_Stats_Melee = value
+	end)
+	
+	
+	spawn(function()
+		while wait() do
+			if _G.Auto_Stats_Melee then
+				local args = {
+					[1] = "AddPoint",
+					[2] = "Melee",
+					[3] = _G.Point
+				}
+							
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end
+		end
+	end)
+	
+	stats1:Toggle("Auto Stats Defense",_G.Auto_Stats_Defense,function(value)
+	 _G.Auto_Stats_Defense = value
+	end)
+	
+	
+	spawn(function()
+		while wait() do
+			if _G.Auto_Stats_Defense then
+				local args = {
+					[1] = "AddPoint",
+					[2] = "Defense",
+					[3] = _G.Point
+				}
+							
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end
+		end
+	end)
+	
+	stats1:Toggle("Auto Stats Sword",_G.Auto_Stats_Sword,function(value)
+	 _G.Auto_Stats_Sword = value
+	end)
+	
+	
+	spawn(function()
+		while wait() do
+			if _G.Auto_Stats_Sword then
+				local args = {
+					[1] = "AddPoint",
+					[2] = "Sword",
+					[3] = _G.Point
+				}
+							
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end
+		end
+	end)
+	
+	stats1:Toggle("Auto Stats Gun",_G.Auto_Stats_Gun,function(value)
+	 _G.Auto_Stats_Gun = value
+	end)
+	
+	spawn(function()
+		while wait() do
+			if _G.Auto_Stats_Gun then
+				local args = {
+					[1] = "AddPoint",
+					[2] = "Gun",
+					[3] = _G.Point
+				}
+							
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end
+		end
+	end)
+	
+	stats1:Toggle("Auto Stats Devil Fruit",_G.Auto_Stats_Devil_Fruit,function(value)
+	 _G.Auto_Stats_Devil_Fruit = value
+	end)
+	
+	
+	spawn(function()
+		while wait() do
+			if _G.Auto_Stats_Devil_Fruit then
+				local args = {
+					[1] = "AddPoint",
+					[2] = "Demon Fruit",
+					[3] = _G.Point
+				}
+							
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end
+		end
+	end)
+	
+	
+	
+	stats1:Slider("Select Point",1,100,1,function(value)
+	_G.Point = value
+	return "Point : " .. tostring(value)
+	end)
 
 
 
