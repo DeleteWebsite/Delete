@@ -1,4 +1,4 @@
-_G.Color = Color3.fromRGB(0, 255, 0)
+_G.Color = Color3.fromRGB(117,177,255)
 
 
 if game:GetService("CoreGui"):FindFirstChild("Fai Fao Hub") then
