@@ -2079,6 +2079,10 @@ local serv = win:Server("Blox Fruit","")
 
 local AutoFarm = serv:Channel("General", "")
 local Setting = serv:Channel("Setting", "")
+local Shop = serv:Channel("Shop", "")
+
+
+
 
 
 Time = AutoFarm:Label("Server Time")
@@ -4912,3 +4916,56 @@ AutoFarm:Toggle('Auto Elite Hunter', AutoEliteHunter, function(autoelitefunc)
 	  end
 	  end
 	  end)
+
+
+
+
+
+-----Shop
+
+
+
+	    Shop:Button("Buy Black Leg",function()
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
+	    end)
+	    
+	    Shop:Button("Buy Electro",function()
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
+	    end)
+	    
+	    Shop:Button("Buy Fishman Karate",function()
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
+	    end)
+	    
+	    Shop:Button("Buy Dragon Claw",function()
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
+	    end)
+	    
+	    Shop:Button("Buy Superhuman",function()
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
+	    end)
+	    
+	    Shop:Button("Buy Death Step",function()
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
+	    end)
+	    
+	    Shop:Button("Buy Sharkman Karate",function()
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+	    end)
+	    
+	    Shop:Button("Buy Electric Claw",function()
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
+	    end)
+	    
+	    Shop:Button("Buy Dragon Talon",function()
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+	    end)
+	
+	    Shop:Button("Buy God Human",function()
+	        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+	    end)
+
+
+Shop:Line()
