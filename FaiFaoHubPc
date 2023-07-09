@@ -4678,3 +4678,179 @@ AutoFarm:Line()
 	 end
 	 end
 	 end)
+
+
+AutoFarm:Line()
+
+
+	AutoFarm:Toggle('CakePrince', AutoCakePrince, function(autocakefunc)
+	  AutoCakePrince = autocakefunc
+	  CancelTween(AutoCakePrince)
+	  end)
+	spawn(function()
+	  while task.wait() do
+	  if AutoCakePrince then
+	  game.ReplicatedStorage.Remotes.CommF_:InvokeServer("CakePrinceSpawner")
+	  if game.ReplicatedStorage:FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") then
+	  if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") then
+	  for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+	  if AutoCakePrince and v.Name == "Cake Prince [Lv. 2300] [Raid Boss]" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+	  repeat task.wait()
+	  EquipTool(SelectWeapon)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+	  v.HumanoidRootPart.Transparency = 1
+	  v.Humanoid.JumpPower = 0
+	  v.Humanoid.WalkSpeed = 0
+	  v.HumanoidRootPart.CanCollide = false
+	--v.Humanoid:ChangeState(11)
+	--v.Humanoid:ChangeState(14)
+	  FarmPos = v.HumanoidRootPart.CFrame
+	  MonFarm = v.Name
+	  game:GetService'VirtualUser':CaptureController()
+	  game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+	  until not AutoCakePrince or not v.Parent or v.Humanoid.Health <= 0
+	  end
+	  end
+	  else
+	    if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 and (CFrame.new(-1990.672607421875, 4532.99951171875, -14973.6748046875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 2000 then
+	  Tween(CFrame.new(-2151.82153, 149.315704, -12404.9053))
+	  end
+	  end
+	  else
+	    if game:GetService("Workspace").Enemies:FindFirstChild("Cookie Crafter [Lv. 2200]") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Guard [Lv. 2225]") or game:GetService("Workspace").Enemies:FindFirstChild("Baking Staff [Lv. 2250]") or game:GetService("Workspace").Enemies:FindFirstChild("Head Baker [Lv. 2275]") then
+	  for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+	  if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+	  if (v.Name == "Cookie Crafter [Lv. 2200]" or v.Name == "Cake Guard [Lv. 2225]" or v.Name == "Baking Staff [Lv. 2250]" or v.Name == "Head Baker [Lv. 2275]") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+	  repeat task.wait()
+	  EquipTool(SelectWeapon)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+	  v.HumanoidRootPart.Transparency = 1
+	  v.Humanoid.JumpPower = 0
+	  v.Humanoid.WalkSpeed = 0
+	  v.HumanoidRootPart.CanCollide = false
+	--v.Humanoid:ChangeState(11)
+	--v.Humanoid:ChangeState(14)
+	  FarmPos = v.HumanoidRootPart.CFrame
+	  MonFarm = v.Name
+	  game:GetService'VirtualUser':CaptureController()
+	  game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+	  until not AutoCakePrince or not v.Parent or v.Humanoid.Health <= 0
+	  end
+	  end
+	  end
+	  else
+	    local cakepos = CFrame.new(-2077, 252, -12373)
+	  if BypassTP then
+	  if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - cakepos.Position).Magnitude > 2000 then
+	  BTP(cakepos)
+	  wait(3)
+	  elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - cakepos.Position).Magnitude < 2000 then
+	  Tween(cakepos)
+	  end
+	  else
+	    Tween(cakepos)
+	  end
+	  end
+	  end
+	  end
+	  end
+	  end)
+
+
+
+AutoFarm:Line()
+
+
+	local Boss = {}
+	for i,v in pairs(game.ReplicatedStorage:GetChildren()) do
+	if string.find(v.Name, "Boss") then
+	if v.Name == "Ice Admiral [Lv. 700] [Boss]" then
+	elseif v.Name == "rip_indra [Lv. 1500] [Boss]" then
+	else
+	  table.insert(Boss, v.Name)
+	end
+	end
+	end
+	for i,v in pairs(game.workspace.Enemies:GetChildren()) do
+	if string.find(v.Name, "Boss") then
+	if v.Name == "Ice Admiral [Lv. 700] [Boss]" then
+	elseif v.Name == "rip_indra [Lv. 1500] [Boss]" then
+	else
+	  table.insert(Boss, v.Name)
+	end
+	end
+	end
+	
+	local selectedBoss = AutoFarm:Dropdown('Select Boss', Boss, function(bosslist)
+	  SelectBoss = bosslist
+	  end)
+	
+	AutoFarm:Button('Refesh', function()
+	        selectedBoss:Clear()
+	            for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+	            if string.find(v.Name, "Boss") then
+	                selectedBoss:Add(v.Name) 
+	            end
+	        end
+	    end)
+	
+	AutoFarm:Toggle('Auto Farm Boss', AutoFarmBossQuest, function(afbq)
+	  AutoFarmBossQuest = afbq
+	  CancelTween(AutoFarmBossQuest)
+	  if AutoFarmBossQuest and SelectWeapon == nil then
+	  Library:Notification("System.!", "Please choose your weapon first. \nThanks.")
+	  end
+	  end)
+	
+	spawn(function()
+	  while task.wait() do
+	  if AutoFarmBossQuest then
+	  pcall(function()
+	    CheckBossQuest(selectBoss)
+	    if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+	    if game:GetService('ReplicatedStorage'):FindFirstChild(SelectBoss) then
+	    wait(3)
+	    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuestBoss,QuestLvBoss)
+	    end
+	    if BypassTP then
+	    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude > 2000 then
+	    BTP(CFrameBoss)
+	    wait(3)
+	    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude < 2000 then
+	    Tween(CFrameBoss)
+	    end
+	    else
+	      Tween(CFrameBoss)
+	    end
+	    elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+	    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+	    if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+	    if v.Name == SelectBoss then
+	    repeat game:GetService("RunService").Heartbeat:wait()
+	    EquipTool(SelectWeapon)
+	    Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+	    v.HumanoidRootPart.Transparency = 1
+	    v.Humanoid.JumpPower = 0
+	    v.Humanoid.WalkSpeed = 0
+	    v.HumanoidRootPart.CanCollide = false
+	--v.Humanoid:ChangeState(11)
+	--v.Humanoid:ChangeState(14)
+	    FarmPos = v.HumanoidRootPart.CFrame
+	    MonFarm = v.Name
+	    Click()
+	    if v.Humanoid.Health <= 0 and v.Humanoid:FindFirstChild("Animator") then
+	    v.Humanoid.Animator:Destroy()
+	    end
+	    until not AutoFarmBossQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+	    end
+	    end
+	    end
+	    Tween(game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss).HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	    end
+	    end)
+	  end
+	  end
+	  end)
