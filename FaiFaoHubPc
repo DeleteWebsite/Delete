@@ -2124,7 +2124,7 @@ AutoFarm:Line()
 	  "Melee","Fruit","Sword"
 	}
 
-	AutoFarm:Dropdown("Select Waepon",WeaponList,function(weaponfunc)
+	AutoFarm:Dropdown("Select Weapon",WeaponList,function(weaponfunc)
 	  SelectWeapon = weaponfunc
 	  end)
 	
@@ -4799,9 +4799,6 @@ AutoFarm:Line()
 	AutoFarm:Toggle('Auto Farm Boss', AutoFarmBossQuest, function(afbq)
 	  AutoFarmBossQuest = afbq
 	  CancelTween(AutoFarmBossQuest)
-	  if AutoFarmBossQuest and SelectWeapon == nil then
-	  Library:Notification("System.!", "Please choose your weapon first. \nThanks.")
-	  end
 	  end)
 	
 	spawn(function()
