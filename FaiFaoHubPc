@@ -2247,13 +2247,13 @@ AutoFarm:Line()
 	        if _G.FastAttackDelay then
 	            pcall(function()
 	                if _G.FastAttackDelay == "Slow" then
-	                    _G.FastAttackDelay = 0.3
+	                    _G.FastAttackDelay = 0.2
 	                elseif _G.FastAttackDelay == "Default" then
 	                    _G.FastAttackDelay = 0.5
 	                elseif _G.FastAttackDelay == "Normal" then
-	                    _G.FastAttackDelay = 0.2
-	                elseif _G.FastAttackDelay == "Pro" then
 	                    _G.FastAttackDelay = 0.1
+	                elseif _G.FastAttackDelay == "Pro" then
+	                    _G.FastAttackDelay = 0
 	                end
 	            end)
 	        end
