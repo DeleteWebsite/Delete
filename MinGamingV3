@@ -7308,7 +7308,82 @@ Teleport:Button("Biển 3", function()
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
 end) 
 
+
+
+Teleport:Seperator("Đảo Bí Ẩn")
+
+
+task.spawn(function()
+            while task.wait() do
+                pcall(function()
+                    if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
+                        FM:UpdateLabel("Thông báo: Trăng tròn 100%")
+                    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149052" then
+                        FM:UpdateLabel("Thông báo: Trăng tròn 75%")
+                    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" then
+                        FM:UpdateLabel("Thông báo : Trăng tròn 50%")
+                    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" then
+                        FM:UpdateLabel("Thông báo : Trăng tròn 25%")
+                    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" then
+                        FM:UpdateLabel("Thông báo: Trăng tròn 15%")
+                    else
+                        FM:UpdateLabel("Thông báo‘: Trăng tròn 0%")
+                    end
+                end)
+            end
+end)
+      
+spawn(function()
+        pcall(function()
+            while wait() do
+    if game.Workspace._WorldOrigin.Locations:FindFirstChild('Mirage Island') then
+    Mirragecheck:UpdateLabel('Thông báo: Đã có đảo bí ẩn')
+    else
+      Mirragecheck:UpdateLabel('Thông báo: Không có đảo bí ẩn ' )end
+            end
+        end)
+end)
+
+Teleport:Toggle("Di chuyển tới đảo bí ẩn",false,function(value)
+  _G.Mirage = value
+StopTween(_G.Mirage)
+  end)
+
+Teleport:Toggle("Di chuyển tới bánh răng",false,function(value)
+  TP(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
+end)
+
+spawn(function()
+        pcall(function()
+            while wait() do
+             if _G.Mirage then
+              if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+                function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/250,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Map.MysticIsland.PrimaryPart.CFrame*CFrame.new(0,250,0))
+                else
+game.StarterGui:SetCore("SendNotification", {
+        Title = "Min Gaming Hub"; -- the title (ofc)
+        Text = "Không có đảo bí ẩn !"; -- what the text says (ofc)
+        Icon = ""; -- the image if u want. 
+        Duration = 3; -- how long the notification should in secounds
+        })
+                if _G.MirageHop then
+                wait(6)
+                Hop()
+                end          
+            end
+end
+end
+end)
+end)
+
+
+
+
 Teleport:Seperator("Đảo")
+
+
+
+
 
 --// Island Teleport
 Teleport:Button('Dừng di chuyển', function()
@@ -7771,7 +7846,7 @@ Dungeon:Seperator("Raid")
 
 Chips = {"Flame","Ice","Quake","Light","Dark","String","Rumble","Magma","Human: Buddha","Sand","Bird: Phoenix","Dough"}
 
-Dungeon:Dropdown('Chọn raid',Chips, function(selchipf)
+Dungeon:Dropdown('Chọn raid',Chips,{""},function(selchipf)
     SelectChip = selchipf
 end)
 
