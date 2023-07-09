@@ -2124,7 +2124,7 @@ AutoFarm:Line()
 	  "Melee","Fruit","Sword"
 	}
 
-	AutoFarm:Dropdown("Select Waepon",WeaponList,function(weaponfunc)
+	AutoFarm:Dropdown("Select Weapon",WeaponList,function(weaponfunc)
 	  SelectWeapon = weaponfunc
 	  end)
 	
