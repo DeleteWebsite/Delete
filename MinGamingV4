@@ -3609,7 +3609,7 @@ Weapon:Seperator("「 Auto Dough 」")
         end
     end)
     
-    Weapon:Toggle("Auto Spikey Trident",_G.AutoDoughtBoss,function(value)
+    Weapon:Toggle("Cake Pricne",_G.AutoDoughtBoss,function(value)
         _G.AutoDoughtBoss = value
         StopTween(_G.AutoDoughtBoss)
     end)
