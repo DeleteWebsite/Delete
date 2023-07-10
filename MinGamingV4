@@ -503,20 +503,20 @@ NotificationHold:Destroy()
  end
 
 	local Hub = Instance.new("TextLabel")
-	Hub.Name = "Hub"
+	Hub.Name = ""
 	Hub.Parent = Top
 	Hub.BackgroundColor3 = Color3.fromRGB(255,255,255)
 	Hub.BackgroundTransparency = 1.000
 	Hub.Position = UDim2.new(0, 80, 0, 0)
 	Hub.Size = UDim2.new(0, 50, 0, 27)
 	Hub.Font = Enum.Font.Code
-	Hub.Text = "HUB"
+	Hub.Text = ""
 	Hub.TextColor3 = Color3.fromRGB(67, 255, 50)
 	Hub.TextSize = 15.000
 	Hub.TextXAlignment = Enum.TextXAlignment.Left
 	
 local Hub1 = Instance.new("TextLabel")
-	Hub1.Name = "Hub"
+	Hub1.Name = ""
 	Hub1.Parent = Top
 	Hub1.BackgroundColor3 = Color3.fromRGB(51, 255, 85)
 	Hub1.BackgroundTransparency = 1.000
@@ -3152,60 +3152,6 @@ spawn(function()
 end)
    
 
-Setting:Toggle("Remove Fog",RemoveFog,function(value)
-        RemoveFog = value
-        if not RemoveFog then return end
-        while RemoveFog do wait()
-            game.Lighting.FogEnd = 9e9
-            if not RemoveFog then
-                game.Lighting.FogEnd = 2500
-            end
-        end
-    end)
-   
-    
-    Setting:Toggle("Hide Ui (Reduce Lag)",false,function(value)
-        if value == true then
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Beli.Visible = false
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.HP.Visible = false
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Energy.Visible = false
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.StatsButton.Visible = false
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ShopButton.Visible = false
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Skills.Visible = false
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Level.Visible = false
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.MenuButton.Visible = false
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Code.Visible = false
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Settings.Visible = false
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Mute.Visible = false
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.CrewButton.Visible = false
-        else
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Beli.Visible = true
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.HP.Visible = true
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Energy.Visible = true
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.StatsButton.Visible = true
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ShopButton.Visible = true
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Skills.Visible = true
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Level.Visible = true
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.MenuButton.Visible = true
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Code.Visible = true
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Settings.Visible = true
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Mute.Visible = true
-            game:GetService("Players")["LocalPlayer"].PlayerGui.Main.CrewButton.Visible = true
-        end
-    end)
-    
-    spawn(function()
-      while wait() do
-      if _G.WhiteScreen then
-        for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
-            if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "DamageCounter" or v.Name == "SwordSlash" or v.Name == "SlashTail" or v.Name == "Sounds" then
-                v:Destroy() 
-            end
-        end
-    end
-    end
-end) 
-    
         Setting:Toggle("White Screen",_G.WhiteScreen,function(value)
     _G.WhiteScreen = value
 if _G.WhiteScreen == true then
@@ -6850,10 +6796,81 @@ end)
             game:GetService("Players")["LocalPlayer"].leaderstats["Bounty/Honor"].Value = tonumber(value)
         end
     end)
+
+
+Teleport:Seperator("Mirage Island")
+	local FM = Teleport:Label('Third Sea')
+	local Mirragecheck = Teleport:Label('Third Sea')
+	
+	task.spawn(function()
+	            while task.wait() do
+	                pcall(function()
+	                    if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
+	                        FM:Set("🌕: Full Moon 100%")
+	                    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149052" then
+	                        FM:Set("🌖’ : Full Moon 75%")
+	                    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" then
+	                        FM:Set("🌗“ : Full Moon 50%")
+	                    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" then
+	                        FM:Set("🌘 : Full Moon 25%")
+	                    elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" then
+	                        FM:Set("🌘: Full Moon 15%")
+	                    else
+	                        FM:Set("🌑: Full Moon 0%")
+	                    end
+	                end)
+	            end
+	end)
+	      
+	spawn(function()
+	        pcall(function()
+	            while wait() do
+	    if game.Workspace._WorldOrigin.Locations:FindFirstChild('Mirage Island') then
+	    Mirragecheck:Set('🏝️: Mirage Island Spawned')
+	    else
+	      Mirragecheck:Set('❌: Mirage Island Not Spawned' )end
+	            end
+	        end)
+	end)
+	
+	Teleport:Toggle("Tween To Mirage Island",false,function(value)
+	  _G.Mirage = value
+	StopTween(_G.Mirage)
+	  end)
+	
+	Teleport:Toggle("Tween To Gear",false,function(value)
+	  Tween(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
+	end)
+	
+	spawn(function()
+	        pcall(function()
+	            while wait() do
+	             if _G.Mirage then
+	              if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+	                function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/250,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Map.MysticIsland.PrimaryPart.CFrame*CFrame.new(0,250,0))
+	                else
+	game.StarterGui:SetCore("SendNotification", {
+	        Title = "Min Gaming Hub"; -- the title (ofc)
+	        Text = "Mirage not Found"; -- what the text says (ofc)
+	        Icon = ""; -- the image if u want. 
+	        Duration = 3; -- how long the notification should in secounds
+	        })
+	                if _G.MirageHop then
+	                wait(6)
+	                Hop()
+	                end          
+	            end
+	end
+	end
+	end)
+	end)
+	
+
+
     
-    Teleport:Seperator("「 TP TO SEAS")
+    Teleport:Seperator("World")
     
-    Teleport:Button("Teleport To Old World",function()
+    Teleport:Button("Teleport To Firts World",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
     end)
     
@@ -6864,16 +6881,8 @@ end)
     Teleport:Button("Teleport To Third Sea",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
     end)
-    
-    Teleport:Button("Teleport to Seabeast",function()
-        for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-            if v:FindFirstChild("HumanoidRootPart") then
-                topos(v.HumanoidRootPart.CFrame*CFrame.new(0,100,0))
-            end
-        end
-    end)
-    
-Teleport:Seperator("「 Island 」")
+        
+Teleport:Seperator("Island")
     if World1 then
       Teleport:Button("First land",function()
           topos(CFrame.new(1042.1501464844, 16.299360275269, 1444.3442382813))
