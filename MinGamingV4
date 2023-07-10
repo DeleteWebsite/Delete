@@ -8081,7 +8081,7 @@ end)
 
 
 
-    RaceV4:Seperator("👾 Race V4 👾")
+    RaceV4:Seperator("RaceV4")
 	
 	    
 	    RaceV4:Button("Teleport To Timple Of Time",function()
