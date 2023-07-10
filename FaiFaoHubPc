@@ -1,3 +1,62 @@
+xwd = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+Gamename = xwd.Name
+local games = {
+[game.PlaceId] = {
+    Title = "Blox Fruits",
+    Icons = "rbxassetid://13907765704",
+    Welcome = function()
+            return tostring(
+            " "
+                ..
+
+                        Gamename.. "!" .. " Faifao#2555]"  .."\n Welcome to Fai Fao Hub"
+            )
+    end
+}
+}
+if games[game.PlaceId] then	
+if games[game.PlaceId].Title == "Blox Fruits" then
+    local function notify(types, ...)
+            if types == "Notify" then
+            require(game.ReplicatedStorage.Notification).new(...):Display()
+            end
+    end
+    notify("Notify", games[game.PlaceId].Welcome())
+end
+end
+
+
+
+
+
+
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "Loading...";
+ Text = "Script By: Faifao#2555";
+ Icon = "rbxassetid://13907765704";
+ Duration = 6;
+ Callback = NotificationBindable;
+})
+
+
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "Done !!!";
+ Text = "Script By: Faifao#2555";
+ Icon = "rbxassetid://13907765704";
+ Duration = 6;
+ Callback = NotificationBindable;
+})
+
+
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "Thanks Everyone";
+ Text = "Script By: Faifao#2555";
+ Icon = "rbxassetid://13907765704";
+ Duration = 6;
+ Callback = NotificationBindable;
+})
+
+
 _G.Color = Color3.fromRGB(117,177,255)
 
 
