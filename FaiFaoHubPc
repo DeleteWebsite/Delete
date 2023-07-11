@@ -39,22 +39,6 @@ game.StarterGui:SetCore("SendNotification",  {
 })
 
 
-game.StarterGui:SetCore("SendNotification",  {
- Title = "Done !!!";
- Text = "Script By: Faifao#2555";
- Icon = "rbxassetid://13907765704";
- Duration = 6;
- Callback = NotificationBindable;
-})
-
-
-game.StarterGui:SetCore("SendNotification",  {
- Title = "Thanks Everyone";
- Text = "Script By: Faifao#2555";
- Icon = "rbxassetid://13907765704";
- Duration = 6;
- Callback = NotificationBindable;
-})
 
 
 _G.Color = Color3.fromRGB(117,177,255)
@@ -6245,5 +6229,20 @@ spawn(function()
 Raid:Line()
 
 
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "Done !!!";
+ Text = "Script By: Faifao#2555";
+ Icon = "rbxassetid://13907765704";
+ Duration = 6;
+ Callback = NotificationBindable;
+})
 
+
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "Thanks Everyone";
+ Text = "Script By: Faifao#2555";
+ Icon = "rbxassetid://13907765704";
+ Duration = 6;
+ Callback = NotificationBindable;
+})
 
