@@ -3616,11 +3616,11 @@
 	            end
 	        end)
 	
-	    local Library = Update:Window("Fai Fao Script")
+	    local Library = Update:Window("Fai Fao - Mobile")
 	    local Main = Library:Tab("General")
 	    local Farm = Library:Tab("Items")
 	    local Stats = Library:Tab("Stats")
-	    local Combat = Library:Tab("Pvp")
+	    local Combat = Library:Tab("Player")
 	    local Teleport = Library:Tab("Island")
 	    local Dungeon = Library:Tab("Raid & Esp")
 	    local Fruit = Library:Tab("Fruit")
@@ -3628,15 +3628,7 @@
 	    local Misc = Library:Tab("Misc")
 	    local RaceV4 = Library:Tab("RaceV4")
 	
-	Main:Seperator("Discord")
-	
-	Main:Label("Join My Discord For More Info")
-	
-	
-	Main:Button("Copy Discord Link",function()
-	 
-	 setclipboard("https://discord.gg/YaUZh7Q4")
-	 end)
+
 	
 	--// Setting Farm
 	local bringfrec = 250
