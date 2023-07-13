@@ -8,7 +8,7 @@ OrionLib:MakeNotification({
 })
 
 
-local Window = OrionLib:MakeWindow({Name = "Min Gaming | Prenium ", HidePremium = false, SaveConfig = true, ConfigFolder = "Orion"})
+local Window = OrionLib:MakeWindow({Name = "Min Gaming | Premium ", HidePremium = false, SaveConfig = true, ConfigFolder = "Orion"})
 
 --Player Tab--
 
