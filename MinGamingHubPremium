@@ -136,7 +136,7 @@ Setting:AddToggle({
 	                elseif _G.FastAttackDelay1 == "Normal" then
 	                    _G.FastAttackDelay1 = 0.18
 	                elseif _G.FastAttackDelay1 == "God" then
-	                    _G.FastAttackDelay1 = 0.01
+	                    _G.FastAttackDelay1 = 0.1
 	                end
 	            end)
 	        end
@@ -272,7 +272,7 @@ Setting:AddToggle({
 	                elseif _G.FastAttackDelay == "Default" then
 	                    _G.FastAttackDelay = 0.5
 	                elseif _G.FastAttackDelay == "Normal" then
-	                    _G.FastAttackDelay = 0.18
+	                    _G.FastAttackDelay = 0.2
 	                elseif _G.FastAttackDelay == "Pro" then
 	                    _G.FastAttackDelay = 0
 	                end
