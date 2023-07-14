@@ -12,11 +12,13 @@ local Window = OrionLib:MakeWindow({Name = "Min Gaming | Premium ", HidePremium 
 
 --Player Tab--
 
+
 local AutoFarm = Window:MakeTab({
 	Name = "Main",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
 
 local Setting = Window:MakeTab({
 	Name = "Setting",
@@ -26,6 +28,25 @@ local Setting = Window:MakeTab({
 
 
 
+local Raid = Window:MakeTab({
+	Name = "Raid",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------Main Farm
 	--// Setting Farm
 	local bringfrec = 350
 	local posX = 0
@@ -479,7 +500,7 @@ AutoFarm:AddToggle({
 
 
 	  
-	 
+
 	spawn(function()
 	  while task.wait() do
 	  if AutoFarmQuest then
@@ -593,7 +614,7 @@ AutoFarm:AddToggle({
 })
 
 
-	  
+	 
 	spawn(function()
 	  while task.wait(.1) do
 	  local boneframe = CFrame.new(-9508.5673828125, 142.1398468017578, 5737.3603515625)
@@ -700,7 +721,7 @@ AutoFarm:AddToggle({
 	
 
 	 
-	  
+
 	spawn(function()
 	  while task.wait() do
 	  if AutoCakePrince then
@@ -773,6 +794,151 @@ AutoFarm:AddToggle({
 	  end)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	Raid:AddDropdown({
+	Name = "Select Chip Raid",
+	Default = "nil",
+	Options = {"Flame","Ice","Quake","Light","Dark","Spider","Rumble","Magma","Human: Buddha","Sand","Bird: Phoenix","Dough"},
+	Callback = function(Value)
+	    SelectChip = Value
+	end    
+})
+
+
+Raid:AddButton({
+	Name = "Buy Chip",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaidsNpc","Select",SelectChip)
+  	end    
+})
+
+
+Raid:AddButton({
+	Name = "Start Raid",
+	Callback = function()
+      		if Second_Sea then
+        fireclickdetector(Workspace.Map.CircleIsland.RaidSummon2.Button.Main.ClickDetector)
+    elseif Third_Sea then
+        fireclickdetector(Workspace.Map["Boat Castle"].RaidSummon2.Button.Main.ClickDetector)
+    end
+  	end    
+})
+
+
+Raid:AddToggle({
+	Name = "Kill Aura",
+	Default = false,
+	Callback = function(Value)
+		KillAura = Value
+	end    
+})
+
+spawn(function()
+    while wait() do
+        if KillAura then
+            pcall(function()
+                for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
+                    if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                        repeat task.wait()
+                            sethiddenproperty(game:GetService('Players').LocalPlayer,"SimulationRadius",math.huge)
+                            v.Humanoid.Health = 0
+                            v.HumanoidRootPart.CanCollide = false
+                        until not AutoDungeon or not v.Parent or v.Humanoid.Health <= 0
+                    end
+                end
+            end)
+        end
+    end
+end)
+
+
+
+
+Raid:AddToggle({
+	Name = "Auto Next Island",
+	Default = false,
+	Callback = function(Value)
+		AutoNextIsland = Value
+	end    
+})
+
+spawn(function()
+    while task.wait() do
+        if AutoNextIsland then
+            pcall(function()
+                if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
+                    if game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5") then
+                        Tween(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5").CFrame * CFrame.new(0,70,100))
+                    elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4") then
+                        Tween(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4").CFrame * CFrame.new(0,70,100))
+                    elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 3") then
+                        Tween(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 3").CFrame * CFrame.new(0,70,100))
+                    elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 2") then
+                        Tween(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 2").CFrame * CFrame.new(0,70,100))
+                    elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1") then
+                        Tween(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1").CFrame * CFrame.new(0,70,100))
+                    end
+                end
+            end)
+        end
+    end
+end)
+
+
+
+Raid:AddToggle({
+	Name = "Auto Awakening",
+	Default = false,
+	Callback = function(Value)
+		AutoAwakenAbilities = Value
+	end    
+})
+
+spawn(function()
+    while task.wait() do
+        if AutoAwakenAbilities then
+            pcall(function()
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Awakener","Awaken")
+            end)
+        end
+    end
+end)
+
+
+local Section = Raid:AddSection({
+	Name = "Lab"
+})
+
+Raid:AddButton({
+	Name = "Teleport To Lab",
+	Callback = function()
+	    if Second_Sea then
+        TP2(CFrame.new(-6438.73535, 250.645355, -4501.50684))
+	    elseif Third_Sea then
+        TP2(CFrame.new(-5017.40869, 314.844055, -2823.0127, -0.925743818, 4.48217499e-08, -0.378151238, 4.55503146e-09, 1, 1.07377559e-07, 0.378151238, 9.7681621e-08, -0.925743818))
+end
+end
+})
+    
+        
 
 
 
@@ -2774,4 +2940,3 @@ AutoFarm:AddToggle({
 
 		
 	
-
