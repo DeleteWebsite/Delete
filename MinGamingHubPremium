@@ -51,7 +51,7 @@ local Shop = Window:MakeTab({
  
 
 local Misc = Window:MakeTab({
-	Name = "Mics & Race",
+	Name = "Misc & Race",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -4395,6 +4395,68 @@ Misc:AddButton({
 		TP2(CFrame.new(-1530.97144, 13.728817, -14770.0889, 0.898790359, -0, -0.438378751, 0, 1, -0, 0.438378751, 0, 0.898790359))
   	end    
 })
+
+local Section = Misc:AddSection({
+	Name = "Mirage Island"
+})
+
+Misc:AddToggle({
+	Name = "Tween to Mirage Island",
+	Default = false,
+	Callback = function(Value)
+		_G.Mirage = Value
+	end    
+})
+
+spawn(function()
+	pcall(function()
+		while wait() do
+		 if _G.Mirage then
+		  if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+			function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/250,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Map.MysticIsland.PrimaryPart.CFrame*CFrame.new(0,250,0))
+			else
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Min Gaming Premium"; -- the title (ofc)
+	Text = "Mirage not Spawn"; -- what the text says (ofc)
+	Icon = ""; -- the image if u want. 
+	Duration = 3; -- how long the notification should in secounds
+	})
+			if _G.MirageHop then
+			wait(6)
+			Hop()
+			end          
+		end
+end
+end
+end)
+end)
+
+
+
+
+Misc:AddButton({
+	Name = "Tween to Gear",
+	Callback = function()
+		TP2(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
+  	end    
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
