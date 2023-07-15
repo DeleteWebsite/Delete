@@ -4258,16 +4258,143 @@ Stats:AddToggle({
 
 ---------------Misc & Race
 
+local Section = Misc:AddSection({
+	Name = "World"
+})
+
+Misc:AddButton({
+	Name = "Sea1",
+	Callback = function()
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
+  	end    
+})
+
+
+Misc:AddButton({
+	Name = "Sea2",
+	Callback = function()
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
+  	end    
+})
+
+
+Misc:AddButton({
+	Name = "Sea3",
+	Callback = function()
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
+  	end    
+})
+
+
+local Section = Misc:AddSection({
+	Name = "Island"
+})
+
+	Misc:AddButton({
+	Name = "Port Town",
+	Callback = function()
+		TP2(CFrame.new(-610.309692, 57.8323097, 6436.33594))
+  	end    
+})
+
+Misc:AddButton({
+	Name = "Hydra Island",
+	Callback = function()
+		TP2(CFrame.new(5229.99561, 603.916565, 345.154022))
+  	end    
+})
+
+Misc:AddButton({
+	Name = "Great Tree",
+	Callback = function()
+		TP2(CFrame.new(2174.94873, 28.7312393, -6728.83154))
+  	end    
+})
+
+Misc:AddButton({
+	Name = "Castle on the Sea",
+	Callback = function()
+		TP2(CFrame.new(-5477.62842, 313.794739, -2808.4585))
+  	end    
+})
+
+
+Misc:AddButton({
+	Name = "Floating Turtle",
+	Callback = function()
+		TP2(CFrame.new(-10919.2998, 331.788452, -8637.57227))
+  	end    
+})
+
+Misc:AddButton({
+	Name = "Mansion",
+	Callback = function()
+		TP2(CFrame.new(-12553.8125, 332.403961, -7621.91748))
+  	end    
+})
+
+
+Misc:AddButton({
+	Name = "Friendly Arena",
+	Callback = function()
+		TP2(CFrame.new(5220.28955, 72.8193436, -1450.86304))
+  	end    
+})
+
+Misc:AddButton({
+	Name = "Peanut Island",
+	Callback = function()
+		TP2(CFrame.new(-2142, 48, -10031))
+  	end    
+})
+
+
+
+
+Misc:AddButton({
+	Name = "Chocolate Island",
+	Callback = function()
+		TP2(CFrame.new(156.896484, 30.5935211, -12662.7031, -0.573599219, 0, 0.81913656, 0, 1, 0, -0.81913656, 0, -0.573599219))
+  	end    
+})
 
 
 
 
 
+Misc:AddButton({
+	Name = "Ice Cream Island",
+	Callback = function()
+		TP2(CFrame.new(-949, 59, -10907))
+  	end    
+})
 
 
 
 
 
+Misc:AddButton({
+	Name = "Haunted Castle",
+	Callback = function()
+		TP2(CFrame.new(-9530.61035, -132.860657, 5763.13477))
+  	end    
+})
+
+
+Misc:AddButton({
+	Name = "Cake Loaf",
+	Callback = function()
+		TP2(CFrame.new(-2099.33154, 66.9970703, -12128.585, 0.997561574, 0, 0.0697919354, 0, 1, 0, -0.0697919354, 0, 0.997561574))
+  	end    
+})
+
+
+Misc:AddButton({
+	Name = "Candy Cane",
+	Callback = function()
+		TP2(CFrame.new(-1530.97144, 13.728817, -14770.0889, 0.898790359, -0, -0.438378751, 0, 1, -0, 0.438378751, 0, 0.898790359))
+  	end    
+})
 
 
 
