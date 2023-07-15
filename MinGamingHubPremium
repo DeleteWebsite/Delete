@@ -50,7 +50,11 @@ local Shop = Window:MakeTab({
 })
  
 
-
+local Misc = Window:MakeTab({
+	Name = "Mics & Race",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
 
 
@@ -2760,8 +2764,890 @@ end)
 
 
 
+AutoFarm:AddToggle({
+	Name = "Auto Rip_Indra",
+	Default = false,
+	Callback = function(Value)
+		RipIndra = Value
+	end    
+})
+
+spawn(function()
+	while task.wait() do
+		if RipIndra then
+			pcall(function()
+				if game:GetService("Workspace").Enemies:FindFirstChild("rip_indra True Form [Lv. 5000] [Raid Boss]") then
+					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+						if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+							if v.Name == "rip_indra True Form [Lv. 5000] [Raid Boss]" then
+								repeat task.wait()
+									EquipTool(SelectWeapon)
+									Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+									v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+									v.HumanoidRootPart.Transparency = 1
+									v.Humanoid.JumpPower = 0
+									v.Humanoid.WalkSpeed = 0
+									v.HumanoidRootPart.CanCollide = false
+									--v.Humanoid:ChangeState(11)
+									--v.Humanoid:ChangeState(14)
+									FarmPos = v.HumanoidRootPart.CFrame
+									MonFarm = v.Name
+									Click()
+								until v.Humanoid.Health <= 0 or not RipIndra
+							end
+						end
+					end
+				else
+					loc11 = CFrame.new(-5524.53271, 313.800537, -2918.07422, 0.964194059, 0, 0.265197694, 0, 1, 0, -0.265197694, 0, 0.964194059)
+					if BypassTP then
+						if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc11.Position).Magnitude > 2000 then
+							BTP(loc11)
+							wait(3)
+						elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc11.Position).Magnitude < 2000 then
+							Tween(loc11)
+						end
+					else
+						Tween(loc11)
+					end
+				end
+			end)
+		end
+	end
+end)
 
 
+AutoFarm:AddToggle({
+	Name = "Auto RaInbow Haki",
+	Default = false,
+	Callback = function(Value)
+		AutoRainbowHaki = Value
+	end    
+})
+
+spawn(function()
+	while task.wait() do
+		if AutoRainbowHaki then
+			pcall(function()
+				if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+					loc12 = CFrame.new(-11892.0703125, 930.57672119141, -8760.1591796875)
+					if BypassTP then
+						if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc12.Position).Magnitude > 2000 then
+							BTP(loc12)
+							wait(3)
+						elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc12.Position).Magnitude < 2000 then
+							Tween(loc12)
+						end
+					else
+						Tween(loc12)
+					end
+					if (Vector3.new(-11892.0703125, 930.57672119141, -8760.1591796875) - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 30 then
+						wait(1.5)
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("HornedMan","Bet")
+					end
+				elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true and string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Stone") then
+					if game:GetService("Workspace").Enemies:FindFirstChild("Stone [Lv. 1550] [Boss]") then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+								if v.Name == "Stone [Lv. 1550] [Boss]" then
+									repeat task.wait()
+										EquipTool(SelectWeapon)
+										Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+										v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+										v.HumanoidRootPart.Transparency = 1
+										v.Humanoid.JumpPower = 0
+										v.Humanoid.WalkSpeed = 0
+										v.HumanoidRootPart.CanCollide = false
+										--v.Humanoid:ChangeState(11)
+										--v.Humanoid:ChangeState(14)
+										FarmPos = v.HumanoidRootPart.CFrame
+										MonFarm = v.Name
+										game:GetService'VirtualUser':CaptureController()
+										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+									until AutoRainbowHaki == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+								end
+							end
+						end
+					else
+						if game:GetService("ReplicatedStorage"):FindFirstChild("Stone [Lv. 1550] [Boss]") then
+							loc13 = game:GetService("ReplicatedStorage"):FindFirstChild("Stone [Lv. 1550] [Boss]").HumanoidRootPart.CFrame
+							if BypassTP then
+								if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc13.Position).Magnitude > 2000 then
+									BTP(loc13 * Farm_Mode)
+									wait(3)
+								elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc13.Position).Magnitude < 2000 then
+									Tween(loc13 * Farm_Mode)
+								end
+							else
+								Tween(loc13 * Farm_Mode)
+							end
+						end
+					end
+				elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true and string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Island Empress") then
+					if game:GetService("Workspace").Enemies:FindFirstChild("Island Empress [Lv. 1675] [Boss]") then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+								if v.Name == "Island Empress [Lv. 1675] [Boss]" then
+									repeat task.wait()
+										EquipTool(SelectWeapon)
+										Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+										v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+										v.HumanoidRootPart.Transparency = 1
+										v.Humanoid.JumpPower = 0
+										v.Humanoid.WalkSpeed = 0
+										v.HumanoidRootPart.CanCollide = false
+										--v.Humanoid:ChangeState(11)
+										--v.Humanoid:ChangeState(14)
+										FarmPos = v.HumanoidRootPart.CFrame
+										MonFarm = v.Name
+										game:GetService'VirtualUser':CaptureController()
+										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+									until AutoRainbowHaki == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+								end
+							end
+						end
+					else
+						if game:GetService("ReplicatedStorage"):FindFirstChild("Island Empress [Lv. 1675] [Boss]") then
+							loc14 = game:GetService("ReplicatedStorage"):FindFirstChild("Island Empress [Lv. 1675] [Boss]").HumanoidRootPart.CFrame
+							if BypassTP then
+								if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc14.Position).Magnitude > 2000 then
+									BTP(loc14 * Farm_Mode)
+									wait(3)
+								elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc14.Position).Magnitude < 2000 then
+									Tween(loc14 * Farm_Mode)
+								end
+							else
+								Tween(loc14 * Farm_Mode)
+							end
+						end
+					end
+				elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Kilo Admiral") then
+					if game:GetService("Workspace").Enemies:FindFirstChild("Kilo Admiral [Lv. 1750] [Boss]") then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+								if v.Name == "Kilo Admiral [Lv. 1750] [Boss]" then
+									repeat task.wait()
+										EquipTool(SelectWeapon)
+										Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+										v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+										v.HumanoidRootPart.Transparency = 1
+										v.Humanoid.JumpPower = 0
+										v.Humanoid.WalkSpeed = 0
+										v.HumanoidRootPart.CanCollide = false
+										--v.Humanoid:ChangeState(11)
+										--v.Humanoid:ChangeState(14)
+										FarmPos = v.HumanoidRootPart.CFrame
+										MonFarm = v.Name
+										game:GetService'VirtualUser':CaptureController()
+										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+									until AutoRainbowHaki == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+								end
+							end
+						end
+					else
+						if game:GetService("ReplicatedStorage"):FindFirstChild("Kilo Admiral [Lv. 1750] [Boss]") then
+							loc15 = game:GetService("ReplicatedStorage"):FindFirstChild("Kilo Admiral [Lv. 1750] [Boss]").HumanoidRootPart.CFrame
+							if BypassTP then
+								if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc15.Position).Magnitude > 2000 then
+									BTP(loc15 * Farm_Mode)
+									wait(3)
+								elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc15.Position).Magnitude < 2000 then
+									Tween(loc15 * Farm_Mode)
+								end
+							else
+								Tween(loc15 * Farm_Mode)
+							end
+						end
+					end
+				elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Captain Elephant") then
+					if game:GetService("Workspace").Enemies:FindFirstChild("Captain Elephant [Lv. 1875] [Boss]") then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+								if v.Name == "Captain Elephant [Lv. 1875] [Boss]" then
+									repeat task.wait()
+										EquipTool(SelectWeapon)
+										Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+										v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+										v.HumanoidRootPart.Transparency = 1
+										v.Humanoid.JumpPower = 0
+										v.Humanoid.WalkSpeed = 0
+										v.HumanoidRootPart.CanCollide = false
+										--v.Humanoid:ChangeState(11)
+										--v.Humanoid:ChangeState(14)
+										FarmPos = v.HumanoidRootPart.CFrame
+										MonFarm = v.Name
+										game:GetService'VirtualUser':CaptureController()
+										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+									until AutoRainbowHaki == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+								end
+							end
+						end
+					else
+						if game:GetService("ReplicatedStorage"):FindFirstChild("Captain Elephant [Lv. 1875] [Boss]") then
+							loc16 = game:GetService("ReplicatedStorage"):FindFirstChild("Captain Elephant [Lv. 1875] [Boss]").HumanoidRootPart.CFrame
+							if BypassTP then
+								if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc16.Position).Magnitude > 2000 then
+									BTP(loc16 * Farm_Mode)
+									wait(3)
+								elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc16.Position).Magnitude < 2000 then
+									Tween(loc16 * Farm_Mode)
+								end
+							else
+								Tween(loc16 * Farm_Mode)
+							end
+						end
+					end
+				elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Beautiful Pirate") then
+					if game:GetService("Workspace").Enemies:FindFirstChild("Beautiful Pirate [Lv. 1950] [Boss]") then
+						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+							if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+								if v.Name == "Beautiful Pirate [Lv. 1950] [Boss]" then
+									repeat task.wait()
+										EquipTool(SelectWeapon)
+										Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+										v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+										v.HumanoidRootPart.Transparency = 1
+										v.Humanoid.JumpPower = 0
+										v.Humanoid.WalkSpeed = 0
+										v.HumanoidRootPart.CanCollide = false
+										--v.Humanoid:ChangeState(11)
+										--v.Humanoid:ChangeState(14)
+										FarmPos = v.HumanoidRootPart.CFrame
+										MonFarm = v.Name
+										game:GetService'VirtualUser':CaptureController()
+										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
+									until AutoRainbowHaki == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+								end
+							end
+						end
+					else
+						if game:GetService("ReplicatedStorage"):FindFirstChild("Beautiful Pirate [Lv. 1950] [Boss]") then
+							loc17 = game:GetService("ReplicatedStorage"):FindFirstChild("Beautiful Pirate [Lv. 1950] [Boss]").HumanoidRootPart.CFrame
+							if BypassTP then
+								if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc17.Position).Magnitude > 2000 then
+									BTP(loc17 * Farm_Mode)
+									wait(3)
+								elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc17.Position).Magnitude < 2000 then
+									Tween(loc17 * Farm_Mode)
+								end
+							else
+								Tween(loc17 * Farm_Mode)
+							end
+						end
+					end
+				else
+					loc17 = CFrame.new(-11892.0703125, 930.57672119141, -8760.1591796875)
+					if BypassTP then
+						if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc17.Position).Magnitude > 2000 then
+							BTP(loc17)
+							wait(3)
+						elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - loc17.Position).Magnitude < 2000 then
+							Tween(loc17)
+						end
+					else
+						Tween(loc17)
+					end
+					if (Vector3.new(-11892.0703125, 930.57672119141, -8760.1591796875) - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 30 then
+						wait(1.5)
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("HornedMan","Bet")
+					end
+				end
+			end)
+		end
+	end
+end)
+
+
+AutoFarm:AddToggle({
+	Name = "Auto Buy Haki Color",
+	Default = false,
+	Callback = function(Value)
+		AutoColorHaki = Value
+	end    
+})
+
+spawn(function()
+	while task.wait() do
+		if AutoColorHaki then
+			pcall(function()
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("ColorsDealer","2")
+			end)
+		end
+	end
+end)
+
+
+AutoFarm:AddToggle({
+	Name = "Auto Don Swan (Sea2)",
+	Default = false,
+	Callback = function(Value)
+		_G.SwanGlasses = Value
+	end    
+})
+
+spawn(function()
+	while wait() do
+		if _G.SwanGlasses then
+			if game:GetService("Workspace").Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]") then
+				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+					if v.Name == "Don Swan [Lv. 1000] [Boss]" and v.Humanoid.Health > 0 and v:IsA("Model") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+						repeat wait()
+							pcall(function()
+								EquipTool(SelectWeapon)
+								Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+								v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+								v.HumanoidRootPart.Transparency = 1
+								v.Humanoid.JumpPower = 0
+								v.Humanoid.WalkSpeed = 0
+								v.HumanoidRootPart.CanCollide = false
+								--v.Humanoid:ChangeState(11)
+								--v.Humanoid:ChangeState(14)
+								FarmPos = v.HumanoidRootPart.CFrame
+								MonFarm = v.Name
+								Click()
+							end)
+						until _G.SwanGlasses == false or v.Humanoid.Health <= 0
+					end
+				end
+			else
+				Tween(CFrame.new(2191.1674804688, 15.177842140198, 694.69873046875))
+			end
+		end
+	end
+end)
+
+
+local Section = AutoFarm:AddSection({
+	Name = "Mastery"
+})
+
+
+AutoFarm:AddDropdown({
+	Name = "Select Method Mastery",
+	Default = "Quest",
+	Options = {"Quest", "Nearest"},
+	Callback = function(Value)
+		TypeMastery = Value
+	end    
+})
+
+AutoFarm:AddToggle({
+	Name = "Auto Mastery Fruit",
+	Default = false,
+	Callback = function(Value)
+		AutoFarmMasDevilFruit = Value
+		SelectMonster = nil
+	end    
+})
+
+AutoFarm:AddToggle({
+	Name = "Auto Mastery Gun",
+	Default = false,
+	Callback = function(Value)
+	  AutoFarmMasGun = Value
+	  SelectMonster = nil
+	end    
+})
+
+
+
+AutoFarm:AddSlider({
+	Name = "Kill At",
+	Min = 0,
+	Max = 100,
+	Default = 35,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Kill At",
+	Callback = function(Value)
+		KillPercent = Value
+	end    
+})
+
+
+AutoFarm:AddToggle({
+	Name = "Z",
+	Default = false,
+	Callback = function(Value)
+		SkillZ = Value
+	end    
+})
+
+
+AutoFarm:AddToggle({
+	Name = "X",
+	Default = false,
+	Callback = function(Value)
+		SkillX = Value
+	end    
+})
+
+
+
+AutoFarm:AddToggle({
+	Name = "C",
+	Default = false,
+	Callback = function(Value)
+		SkillC = Value
+	end    
+})
+
+
+
+
+AutoFarm:AddToggle({
+	Name = "V",
+	Default = false,
+	Callback = function(Value)
+		SkillV = Value
+	end    
+})
+
+
+-------Skill
+
+    SkillZ = Value
+	SkillX = Value
+	SkillC = Value
+	SkillV = Value
+
+
+
+
+------------------------------Mastery
+
+spawn(function()
+	while task.wait(.1) do
+	if _G.UseSkill then
+	pcall(function()
+	  if _G.UseSkill then
+	  for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+	  if v.Name == MonFarm and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+	  repeat game:GetService("RunService").Heartbeat:wait()
+	  EquipTool(game.Players.LocalPlayer.Data.DevilFruit.Value)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
+	  if game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value) then
+	  game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value).MousePos.Value = PositionSkillMasteryDevilFruit
+	  local DevilFruitMastery = game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value).Level.Value
+	  if SkillZ and DevilFruitMastery >= 1 then
+	  game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+	  wait(.1)
+	  game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+	  end
+	  if SkillX and DevilFruitMastery >= 1 then
+	  game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+	  wait(.1)
+	  game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+	  end
+	  if SkillC and DevilFruitMastery >= 1 then
+	  game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+	  wait(.1)
+	  game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+	  end
+	  if SkillV and DevilFruitMastery >= 1 then
+	  game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+	  wait(.1)
+	  game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+	  end
+	  if SkillF and DevilFruitMastery >= 1 then
+	  game:GetService("VirtualInputManager"):SendKeyEvent(true, "F", false, game)
+	  wait(.1)
+	  game:GetService("VirtualInputManager"):SendKeyEvent(false, "F", false, game)
+	  end
+	  end
+	  until not AutoFarmMasDevilFruit or not _G.UseSkill or v.Humanoid.Health == 0
+	  end
+	  end
+	  end
+	  end)
+	end
+	end
+	end)
+  
+  spawn(function()
+	while task.wait(.1) do
+	if AutoFarmMasDevilFruit and TypeMastery == 'Quest' then
+	pcall(function()
+	  CheckLevel(SelectMonster)
+	  if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+	  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+	  if BypassTP then
+	  if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQ.Position).Magnitude > 2000 then
+	  BTP(CFrameQ)
+	  wait(3)
+	  elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQ.Position).Magnitude < 2000 then
+	  Tween(CFrameQ)
+	  end
+	  else
+		Tween(CFrameQ)
+	  end
+	  if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+	  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
+	  end
+	  elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+	  for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+	  if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+	  if v.Name == Ms then
+	  repeat game:GetService("RunService").Heartbeat:wait()
+	  if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+  
+	  _G.UseSkill = true
+	  else
+		_G.UseSkill = false
+	  EquipTool(SelectWeapon)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+	  v.HumanoidRootPart.Transparency = 1
+	  v.Humanoid.JumpPower = 0
+	  v.Humanoid.WalkSpeed = 0
+	  v.HumanoidRootPart.CanCollide = false
+  --v.Humanoid:ChangeState(11)
+  --v.Humanoid:ChangeState(14)
+	  FarmPos = v.HumanoidRootPart.CFrame
+	  MonFarm = v.Name
+	  Click()
+	  end
+	  until not AutoFarmMasDevilFruit or not v.Parent or v.Humanoid.Health == 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not TypeMastery == 'Queat'
+	  _G.UseSkill = false
+	  end
+	  end
+	  end
+	  _G.UseSkill = false
+	  Tween(CFrameMon)
+	  end
+	  end)
+	elseif AutoFarmMasDevilFruit and TypeMastery == 'No Quest' then
+	pcall(function()
+	  CheckLevel()
+	  if BypassTP then
+	  if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude > 2000 then
+	  BTP(CFrameMon)
+	  wait(3)
+	  elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude < 2000 then
+	  Tween(CFrameMon)
+	  end
+	  else
+		Tween(CFrameMon)
+	  end
+	  if game.Workspace.Enemies:FindFirstChild(Ms) then
+	  for i,v in pairs (game.Workspace.Enemies:GetChildren()) do
+	  if v.Name == Ms and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+	  repeat game:GetService("RunService").Heartbeat:wait()
+	  if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+	  _G.UseSkill = true
+	  else
+		_G.UseSkill = false
+	  EquipTool(SelectWeapon)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+	  v.HumanoidRootPart.Transparency = 1
+	  v.Humanoid.JumpPower = 0
+	  v.Humanoid.WalkSpeed = 0
+	  v.HumanoidRootPart.CanCollide = false
+  --v.Humanoid:ChangeState(11)
+  --v.Humanoid:ChangeState(14)
+	  FarmPos = v.HumanoidRootPart.CFrame
+	  MonFarm = v.Name
+	  Click()
+	  end
+  
+	  until not AutoFarmMasDevilFruit or not v.Parent or v.Humanoid.Health == 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not TypeMastery == 'No Quest'
+	  _G.UseSkill = false
+	  end
+	  end
+	  else
+		_G.UseSkill = false
+	  Tween(CFrameMon)
+	  end
+	  end)
+	elseif AutoFarmMasDevilFruit and TypeMastery == 'Nearest' then
+	pcall(function()
+	  for i,v in pairs (game.Workspace.Enemies:GetChildren()) do
+	  if v.Name and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+	  if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 2000 then
+	  repeat game:GetService("RunService").Heartbeat:wait()
+	  if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+	  _G.UseSkill = true
+	  else
+		_G.UseSkill = false
+	  EquipTool(SelectWeapon)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+	  v.HumanoidRootPart.Transparency = 1
+	  v.Humanoid.JumpPower = 0
+	  v.Humanoid.WalkSpeed = 0
+	  v.HumanoidRootPart.CanCollide = false
+  --v.Humanoid:ChangeState(11)
+  --v.Humanoid:ChangeState(14)
+	  FarmPos = v.HumanoidRootPart.CFrame
+	  MonFarm = v.Name
+	  Click()
+	  end
+	  until not AutoFarmMasDevilFruit or not MasteryType == 'Nearest' or not v.Parent or v.Humanoid.Health == 0 or not TypeMastery == 'Nearest'
+	  _G.UseSkill = false
+	  end
+	  end
+	  end
+	  end)
+	elseif AutoFarmMasDevilFruit and TypeMastery == 'Boss' then
+	if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+	CheckBossQuest()
+	if BypassTP then
+	if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude > 2000 then
+	BTP(CFrameQBoss)
+	wait(3)
+	elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude < 2000 then
+	Tween(CFrameQBoss)
+	end
+	else
+	  Tween(CFrameQBoss)
+	end
+  
+	if (CFrameQBoss.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuestBoss,QuestLvBoss)
+	end
+	elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+	pcall(function()
+	  CheckBossQuest()
+	  if game:GetService("Workspace").Enemies:FindFirstChild(SelectBoss) then
+	  for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+	  if v.Name == selectBoss and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+	  repeat game:GetService("RunService").Heartbeat:wait()
+	  if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+	  _G.UseSkill = true
+	  else
+		_G.UseSkill = false
+	  EquipTool(SelectWeapon)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+	  v.HumanoidRootPart.Transparency = 1
+	  v.Humanoid.JumpPower = 0
+	  v.Humanoid.WalkSpeed = 0
+	  v.HumanoidRootPart.CanCollide = false
+  --v.Humanoid:ChangeState(11)
+  --v.Humanoid:ChangeState(14)
+	  FarmPos = v.HumanoidRootPart.CFrame
+	  MonFarm = v.Name
+	  Click()
+	  end
+	  until not AutoFarmMasDevilFruit or not TypeMastery == 'Boss' or not v.Parent or v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
+	  end
+	  end
+	  else
+		_G.UseSkill = false
+	  Tween(game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss).HumanoidRootPart.CFrame*CFrame.new(posX,posY,posZ))
+	  end
+	  end)
+	end
+	end
+	end
+	end)
+
+
+-------------------Mas Gun	
+
+spawn(function()
+	while task.wait(.1) do
+	if AutoFarmMasGun and TypeMastery == 'Quest' then
+	pcall(function()
+	  CheckLevel(SelectMonster)
+	  if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+	  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+	  if BypassTP then
+	  if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQ.Position).Magnitude > 2000 then
+	  BTP(CFrameQ)
+	  wait(3)
+	  elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQ.Position).Magnitude < 2000 then
+	  Tween(CFrameQ)
+	  end
+	  else
+		Tween(CFrameQ)
+	  end
+	  if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+	  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
+	  end
+	  elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+	  for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+	  if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+	  if v.Name == Ms then
+	  repeat game:GetService("RunService").Heartbeat:wait()
+	  if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+	  EquipTool(CurrentEquipGun)
+	  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ)
+	  game:GetService("Players").LocalPlayer.Character[CurrentEquipGun].Cooldown.Value = 0
+	  _G.UseGunMastery = true
+	  else
+		_G.UseGunMastery = false
+	  EquipTool(SelectWeapon)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+	  v.HumanoidRootPart.Transparency = 1
+	  v.Humanoid.JumpPower = 0
+	  v.Humanoid.WalkSpeed = 0
+	  v.HumanoidRootPart.CanCollide = false
+  --v.Humanoid:ChangeState(11)
+  --v.Humanoid:ChangeState(14)
+	  FarmPos = v.HumanoidRootPart.CFrame
+	  MonFarm = v.Name
+	  Click()
+	  end
+	  until not AutoFarmMasGun or not v.Parent or v.Humanoid.Health <= 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not TypeMastery == 'Queat'
+	  _G.UseGunMastery = false
+	  end
+	  end
+	  end
+	  _G.UseGunMastery = false
+	  Tween(CFrameMon)
+	  end
+	  end)
+	elseif AutoFarmMasGun and TypeMastery == 'No Quest' then
+	pcall(function()
+	  if BypassTP then
+	  if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude > 2000 then
+	  BTP(CFrameMon)
+	  wait(3)
+	  elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude < 2000 then
+	  Tween(CFrameMon)
+	  end
+	  else
+		Tween(CFrameMon)
+	  end
+	  CheckLevel()
+	  if game.Workspace.Enemies:FindFirstChild(Ms) then
+	  for i,v in pairs (game.Workspace.Enemies:GetChildren()) do
+	  if v.Name == Ms and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+	  repeat game:GetService("RunService").Heartbeat:wait()
+	  if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+	  EquipTool(CurrentEquipGun)
+	  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ)
+	  game:GetService("Players").LocalPlayer.Character[CurrentEquipGun].Cooldown.Value = 0
+	  _G.UseGunMastery = true
+	  else
+		_G.UseGunMastery = false
+	  EquipTool(SelectWeapon)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+	  v.HumanoidRootPart.Transparency = 1
+	  v.Humanoid.JumpPower = 0
+	  v.Humanoid.WalkSpeed = 0
+	  v.HumanoidRootPart.CanCollide = false
+	--v.Humanoid:ChangeState(11)
+	--v.Humanoid:ChangeState(14)
+	  FarmPos = v.HumanoidRootPart.CFrame
+	  MonFarm = v.Name
+	  Click()
+	  end
+	  until not AutoFarmMasGun or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not TypeMastery == 'No Quest'
+	  end
+	  end
+	  else
+		_G.UseGunMastery = false
+	  Tween(CFrameMon)
+	  end
+	  end)
+	elseif AutoFarmMasGun and TypeMastery == 'Nearest' then
+	pcall(function()
+	  for i,v in pairs (game.Workspace.Enemies:GetChildren()) do
+	  if v.Name and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+	  if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 2000 then
+	  repeat game:GetService("RunService").Heartbeat:wait()
+	  if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+	  EquipTool(CurrentEquipGun)
+	  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ)
+	  game:GetService("Players").LocalPlayer.Character[CurrentEquipGun].Cooldown.Value = 0
+	  _G.UseGunMastery = true
+	  else
+		_G.UseGunMastery = false
+	  EquipTool(SelectWeapon)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+	  v.HumanoidRootPart.Transparency = 1
+	  v.Humanoid.JumpPower = 0
+	  v.Humanoid.WalkSpeed = 0
+	  v.HumanoidRootPart.CanCollide = false
+  --v.Humanoid:ChangeState(11)
+  --v.Humanoid:ChangeState(14)
+	  FarmPos = v.HumanoidRootPart.CFrame
+	  MonFarm = v.Name
+	  Click()
+	  end
+	  until not AutoFarmMasGun or not MasteryType == 'Nearest' or not v.Parent or v.Humanoid.Health <= 0 or not TypeMastery == 'Nearest'
+	  _G.UseGunMastery = false
+	  end
+	  end
+	  end
+	  end)
+	elseif AutoFarmMasGun and TypeMastery == 'Boss' then
+	if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+	CheckBossQuest()
+	if BypassTP then
+	if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude > 2000 then
+	BTP(CFrameQBoss)
+	wait(3)
+	elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude < 2000 then
+	Tween(CFrameQBoss)
+	end
+	else
+	  Tween(CFrameQBoss)
+	end
+  
+	if (CFrameQBoss.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuestBoss,QuestLvBoss)
+	end
+	elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+	pcall(function()
+	  CheckBossQuest()
+	  if game:GetService("Workspace").Enemies:FindFirstChild(SelectBoss) then
+	  for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+	  if v.Name == selectBoss and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
+	  repeat game:GetService("RunService").Heartbeat:wait()
+	  if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
+	  EquipTool(CurrentEquipGun)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  game:GetService("Players").LocalPlayer.Character[CurrentEquipGun].Cooldown.Value = 0
+	  _G.UseGunMastery = true
+	  else
+		_G.UseGunMastery = false
+	  EquipTool(SelectWeapon)
+	  Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+	  v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+	  v.HumanoidRootPart.Transparency = 1
+	  v.Humanoid.JumpPower = 0
+	  v.Humanoid.WalkSpeed = 0
+	  v.HumanoidRootPart.CanCollide = false
+  --v.Humanoid:ChangeState(11)
+  --v.Humanoid:ChangeState(14)
+	  FarmPos = v.HumanoidRootPart.CFrame
+	  MonFarm = v.Name
+	  Click()
+	  end
+	  until not AutoFarmMasGun or not TypeMastery == 'Boss' or not v.Parent or v.Humanoid.Health <= 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
+	  end
+	  end
+	  else
+		_G.UseGunMastery = false
+	  Tween(game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss).HumanoidRootPart.CFrame*CFrame.new(posX,posY,posZ))
+	  end
+	  end)
+	end
+	end
+	end
+	end)
+  
+  spawn(function()
+	game:GetService("RunService").RenderStepped:Connect(function()
+	  if _G.UseGunMastery then
+	  pcall(function()
+		for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+		if v.Name == MonFarm then
+		game:GetService("Players").LocalPlayer.Character[CurrentEquipGun].RemoteFunctionShoot:InvokeServer(v.HumanoidRootPart.Position,v.HumanoidRootPart)
+		Click()
+		end
+		end
+		end)
+	  end
+	  end)
+	end)
 
 
 
@@ -3368,6 +4254,9 @@ Stats:AddToggle({
 		end
 	end    
 })
+
+
+---------------Misc & Race
 
 
 
