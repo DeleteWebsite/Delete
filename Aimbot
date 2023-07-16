@@ -34,7 +34,7 @@ local ThunderScreen = Instance.new("ScreenGui")
 	        ThunderImageUI.BorderSizePixel = 0
 	        ThunderImageUI.Position = UDim2.new(0.0, 0, 0.0, 0)
 	        ThunderImageUI.Size = UDim2.new(0, 50, 0, 50)
-	        ThunderImageUI.Image = "http://www.roblox.com/asset/?id="
+	        ThunderImageUI.Image = "http://www.roblox.com/asset/?id=13717478897"
 	 
 	 
 	 local UserInputService = game:GetService("UserInputService")
