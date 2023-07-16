@@ -34,7 +34,7 @@ local ThunderScreen = Instance.new("ScreenGui")
 	        ThunderImageUI.BorderSizePixel = 0
 	        ThunderImageUI.Position = UDim2.new(0.0, 0, 0.0, 0)
 	        ThunderImageUI.Size = UDim2.new(0, 50, 0, 50)
-	        ThunderImageUI.Image = "http://www.roblox.com/asset/?id=13907765704"
+	        ThunderImageUI.Image = "http://www.roblox.com/asset/?id="
 	 
 	 
 	 local UserInputService = game:GetService("UserInputService")
@@ -139,7 +139,7 @@ local ThunderScreen = Instance.new("ScreenGui")
 	
 		function DiscordLib:Notification(text,text2,delays,logo)
 			if logo == nil then
-				logo = "13907765704"
+				logo = ""
 			end
 			if delays == nil then
 				delays = 1
@@ -3616,7 +3616,7 @@ local ThunderScreen = Instance.new("ScreenGui")
 	            end
 	        end)
 	
-	    local Library = Update:Window("Min Gaming - Aimbot")
+	    local Library = Update:Window("             Min Gaming - Aimbot")
 		local Main = Library:Tab("Aimbot - HeheBoy")
 
 
