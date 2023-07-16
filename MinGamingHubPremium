@@ -51,7 +51,7 @@ local Shop = Window:MakeTab({
  
 
 local Misc = Window:MakeTab({
-	Name = "Misc & Race",
+	Name = "Misc",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -4442,10 +4442,83 @@ Misc:AddButton({
 })
 
 
+local Section = Misc:AddSection({
+	Name = "Misc"
+})
 
 
+Misc:AddButton({
+	Name = "Rejoin Server",
+	Callback = function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+  	end    
+})
 
 
+local Section = Misc:AddSection({
+	Name = "Team"
+})
+
+Misc:AddButton({
+	Name = "Pirates Team",
+	Callback = function()
+        local args = {
+	        [1] = "SetTeam",
+	        [2] = "Pirates"
+	    }
+	    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args)) 
+	    local args = {
+	        [1] = "BartiloQuestProgress"
+	    }
+	    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+  	end    
+})
+
+Misc:AddButton({
+	Name = "Marines Team",
+	Callback = function()
+        local args = {
+	        [1] = "SetTeam",
+	        [2] = "Marines"
+	    }
+	    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	    local args = {
+	        [1] = "BartiloQuestProgress"
+	    }
+	    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+  	end    
+})
+
+
+local Section = Misc:AddSection({
+	Name = "Open UI"
+})
+
+
+Misc:AddButton({
+	Name = "Devil Shop",
+	Callback = function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
+  	end    
+})
+
+Misc:AddButton({
+	Name = "Title Name",
+	Callback = function()
+        local args = {
+            [1] = "getTitles"
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+        game.Players.localPlayer.PlayerGui.Main.Titles.Visible = true
+  	end
+})
+Misc:AddButton({
+	Name = "Color Haki",
+	Callback = function()
+        game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
+  	end    
+})
 
 
 
