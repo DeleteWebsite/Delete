@@ -57,7 +57,11 @@ local Misc = Window:MakeTab({
 })
 
 
-
+local RaceV4 = Window:MakeTab({
+	Name = "Race V4",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
 
 
@@ -4522,15 +4526,232 @@ Misc:AddButton({
 
 
 
+local Section = Misc:AddSection({
+	Name = "Buff"
+})
+
+
+Misc:AddToggle({
+	Name = "Anti AFK",
+	Default = true,
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+	
+Misc:AddToggle({
+	Name = "Auto Rejoin",
+	Default = true,
+	Callback = function(Value)
+	 _G.AutoRejoin = Value
+end
+})
+
+spawn(function()
+	while wait() do
+		if _G.AutoRejoin then
+				getgenv().rejoin = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(child)
+					if child.Name == 'ErrorPrompt' and child:FindFirstChild('MessageArea') and child.MessageArea:FindFirstChild("ErrorFrame") then
+						game:GetService("TeleportService"):Teleport(game.PlaceId)
+					end
+				 end)
+			end
+		end
+	end)
+
+
+	Misc:AddButton({
+		Name = "Big Buddha",
+		Callback = function()
+			local LocalPlayer = game:GetService("Players").LocalPlayer
+			local Character = LocalPlayer.Character
+			local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+			
+			function rm()
+				for i,v in pairs(Character:GetDescendants()) do
+					if v:IsA("BasePart") then
+						if v.Name == "Handle" or v.Name == "Head" then
+							if Character.Head:FindFirstChild("OriginalSize") then
+								Character.Head.OriginalSize:Destroy()
+							end
+						else
+							for i,cav in pairs(v:GetDescendants()) do
+								if cav:IsA("Attachment") then
+									if cav:FindFirstChild("OriginalPosition") then
+										cav.OriginalPosition:Destroy()  
+									end
+								end
+							end
+							v:FindFirstChild("OriginalSize"):Destroy()
+							if v:FindFirstChild("AvatarPartScaleType") then
+								v:FindFirstChild("AvatarPartScaleType"):Destroy()
+							end
+						end
+					end
+				end
+			end
+			
+			rm()
+			wait(0.5)
+			Humanoid:FindFirstChild("BodyProportionScale"):Destroy()
+			wait(1)
+			end}) 
 
 
 
+	local Section = Misc:AddSection({
+		Name = "Player"
+	})
+
+Misc:AddToggle({
+	Name = "Walk on Water",
+	Default = true,
+	Callback = function(Value)
+		_G.WalkWater = Value
+	end    
+})
+spawn(function()
+	while task.wait() do
+		pcall(function()
+			if _G.WalkWater then
+				game:GetService("Workspace").Map["WaterBase-Plane"].Size = Vector3.new(1000,112,1000)
+			else
+				game:GetService("Workspace").Map["WaterBase-Plane"].Size = Vector3.new(1000,80,1000)
+			end
+		end)
+	end
+end)
+
+-------------------race V4
+
+RaceV4:AddButton({
+	Name = "Teleport To Timple Of Time",
+	Callback = function()
+		Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
+  	end    
+})
 
 
 
+RaceV4:AddButton({
+	Name = "Teleport To Lever Pull",
+	Callback = function()
+      		TP2(CFrame.new(28575.181640625, 14936.6279296875, 72.31636810302734))
+  	end    
+})
 
 
 
+RaceV4:AddButton({
+	Name = "Teleport To Acient One",
+	Callback = function()
+	        TP2(CFrame.new(28981.552734375, 14888.4267578125, -120.245849609375))
+  	end    
+})
+
+local Section = RaceV4:AddSection({
+	Name = "Door"
+})
+
+RaceV4:AddButton({
+	Name = "Cyborg !",
+	Callback = function()
+		TP2(CFrame.new(28492.4140625, 14894.4267578125, -422.1100158691406))
+  	end    
+})
+
+RaceV4:AddButton({
+	Name = "Fish !",
+	Callback = function()
+		TP2(CFrame.new(28224.056640625, 14889.4267578125, -210.5872039794922))
+	end
+})
+
+RaceV4:AddButton({
+	Name = "Ghoul !",
+	Callback = function()
+		TP2(CFrame.new(28672.720703125, 14889.1279296875, 454.5961608886719))
+  	end    
+})
+
+RaceV4:AddButton({
+	Name = "Human !",
+	Callback = function()
+		TP2(CFrame.new(29237.294921875, 14889.4267578125, -206.94955444335938))
+  	end    
+})
+
+RaceV4:AddButton({
+	Name = "Mink  !",
+	Callback = function()
+		TP2(CFrame.new(29020.66015625, 14889.4267578125, -379.2682800292969))
+  	end    
+})
+
+RaceV4:AddButton({
+	Name = "Angle !",
+	Callback = function()
+		TP2(CFrame.new(28967.408203125, 14918.0751953125, 234.31198120117188))
+  	end    
+})
+
+
+local Section = RaceV4:AddSection({
+	Name = "Complete Trial"
+})
+
+RaceV4:AddToggle({
+	Name = "Auto Complete Human / Ghoul ",
+	Default = false,
+	Callback = function(Value)
+		KillAura = Value
+	end    
+})
+
+spawn(function()
+	while wait() do
+		if KillAura then
+			pcall(function()
+				for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
+					if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+						repeat task.wait()
+							sethiddenproperty(game:GetService('Players').LocalPlayer,"SimulationRadius",math.huge)
+							v.Humanoid.Health = 0
+							v.HumanoidRootPart.CanCollide = false
+						until not AutoDungeon or not v.Parent or v.Humanoid.Health <= 0
+					end
+				end
+			end)
+		end
+	end
+end)
+
+
+RaceV4:AddButton({
+	Name = "Angel !",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame
+  	end    
+})
+
+
+
+RaceV4:AddButton({
+	Name = "Mink !",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Map.MinkTrial.Ceiling.CFrame * CFrame.new(0,-5,0)
+  	end    
+})
+
+
+
+RaceV4:AddButton({
+	Name = "Cyborg !",
+	Callback = function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,300,0)
+  	end    
+})
 
 
 
@@ -6698,4 +6919,3 @@ end
 
 
 		
-	
