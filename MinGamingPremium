@@ -2,7 +2,7 @@ _G.Color = Color3.fromRGB(0,255,0)
 _G.Logo = 13717478897
 
 
-local Evil = loadstring(game:HttpGet("https://newpchx2.000webhostapp.com/OBF_UI/UI_Edit_By_Ares.lua"))()
+local Evil = loadstring(game:HttpGet("https://raw.githubusercontent.com/DeleteWebsite/Delete/main/Maru%20UI"))()
 local Win = library:Evil("MinGaming","",_G.Logo )
 --------------------------------------------
 local tab1 = Win:CraftTab('Main')
@@ -1880,8 +1880,3 @@ page1:Label("Cake Prince")
     page1:Toggle("Auto Spawn CakePrince",true,function(value)
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner",value)
     end)
-
-
-
-
-
