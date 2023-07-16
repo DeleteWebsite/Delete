@@ -4623,6 +4623,23 @@ spawn(function()
 	end
 end)
 
+
+
+--Remove Fog
+
+Misc:AddButton({
+	Name = "Remove Fog",
+	Callback = function()
+		game.Lighting.Sky:Destroy()
+	end
+})
+
+
+
+
+
+
+
 -------------------race V4
 
 RaceV4:AddButton({
