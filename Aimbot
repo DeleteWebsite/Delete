@@ -3650,7 +3650,7 @@ Main:Toggle("Show Fov",false,function(value)
 	_G.Show_Fov = value
 end)
 
-Main:Toggle("Aimbot Skill Fov",false,function(value)
+Main:Toggle("Aimbot Skill",false,function(value)
 	_G.Aimbot_Skill_Fov = value
 end)
 local lp = game:GetService('Players').LocalPlayer
