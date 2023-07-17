@@ -4404,6 +4404,41 @@ local Section = Misc:AddSection({
 	Name = "Mirage Island"
 })
 
+
+Misc:AddButton({
+	Name = "Auto Buy Boat",
+	Callback = function()
+		local args = {
+			[1] = "BuyBoat",
+			[2] = "PirateSloop"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+  	end    
+})
+
+
+
+Misc:AddToggle({
+	Name = "Auto Drive Boat",
+	Default = false,
+	Callback = function(Value)
+		_G.DriveBoat = Value
+	end    
+})
+
+spawn(function()
+    pcall(function()
+        while wait() do
+            if _G.DriveBoat and game:GetService("Players").LocalPlayer.Character.Humanoid.Sit == true then
+				game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
+			end
+        end
+    end)
+end)
+
+
+
+
 Misc:AddToggle({
 	Name = "Tween to Mirage Island",
 	Default = false,
