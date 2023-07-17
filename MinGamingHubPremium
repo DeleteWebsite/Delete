@@ -4410,7 +4410,7 @@ Misc:AddButton({
 	Callback = function()
 		local args = {
 			[1] = "BuyBoat",
-			[2] = "PirateSloop"
+			[2] = "Swan"
 		}
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
   	end    
