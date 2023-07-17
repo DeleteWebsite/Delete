@@ -44,7 +44,7 @@ local Raid = Window:MakeTab({
 
 
 local Shop = Window:MakeTab({
-	Name = "Shop",
+	Name = "Shop & Fruit",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
