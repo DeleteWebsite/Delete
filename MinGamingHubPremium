@@ -4641,7 +4641,7 @@ spawn(function()
 
 Misc:AddToggle({
 	Name = "Walk on Water",
-	Default = true,
+	Default = false,
 	Callback = function(Value)
 		_G.WalkWater = Value
 	end    
