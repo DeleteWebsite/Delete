@@ -5854,6 +5854,31 @@ spawn(function()
 		return old(...)
 	end)
 end)
+
+
+
+
+Main:Toggle("ESP Players",false,function(a)
+	ESPPlayer = a
+	UpdatePlayerChams()
+end)
+spawn(function()
+    pcall(function()
+        while wait() do
+			if ESPPlayer then
+				UpdatePlayerChams()
+			end
+        end
+    end)
+end)
+
+
+
+
+
+
+
+
 --------------------------Buff
 
 Playerslist = {}
