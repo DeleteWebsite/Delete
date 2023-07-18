@@ -256,46 +256,10 @@ game:GetService("RunService").Heartbeat:connect(function (step) -- The actual fl
     end;
 end);
 
-ClientSection:CreateToggle({
-	Title = "Fly",
-	Default = false,
-	Callback = function(state)
-        getgenv().Flying = state;
-        if getgenv().Flying then
-            StartFly();
-        else
-            EndFly();
-        end;
-	end
-});
 
-ClientSection:CreateSlider({
-	Title = "Fly speed",
-	Min = 20,
-	Max = 150,
-	Default = 50,
-	Callback = function(val)
-        getgenv().FlySpeed = tonumber(val) or 50;
-    end
-});
+
 --<>----<>----<>----<>----<>----<>----<>--
-ClientSection:CreateButton({
-    Title = "Btools",
-    Callback = function()
-        if not Client.Backpack:FindFirstChildOfClass("HopperBun") then
-            local tool1 = Instance.new("HopperBin",Client.Backpack);
-            local tool2 = Instance.new("HopperBin",Client.Backpack);
-            local tool3 = Instance.new("HopperBin",Client.Backpack);
-            local tool4 = Instance.new("HopperBin",Client.Backpack);
-            local tool5 = Instance.new("HopperBin",Client.Backpack);
-            tool1.BinType = "Clone";
-            tool2.BinType = "GameTool";
-            tool3.BinType = "Hammer";
-            tool4.BinType = "Script";
-            tool5.BinType = "Grab";
-        end
-    end
-})
+
 --<>----<>----<>----<>----<>----<>----<>--
 local accessories = {}
 function GodMode()
@@ -322,28 +286,10 @@ function GodMode()
 end
 
 
-ClientSection:CreateButton({
-    Title = "Godmode",
-    Callback = function()
-        GodMode()
-    end
-})
 
-ClientSection:CreateButton({
-	Title = "Force respawn",
-	Callback = function(state)
-		Character.Head:Remove();
-		Humanoid.BreakJointsOnDeath = false;
-		Humanoid.Health = 0;
-	end;
-});
+
 --<>----<>----<>----<>----<>----<>----<>--
-ClientSection:CreateButton({
-    Title = "Get all emotes",
-    Callback = function()
-		require(EmoteModule).GeneratePage(EmoteList,Emotes,'Free Emotes');
-    end
-})
+
 --<>----<>----<>----<>----<>----<>----<>--
 --<>----<>----<>----<>----<>----<>----<>--
 --<>----<>----<>----<>----<>----<>----<>--
