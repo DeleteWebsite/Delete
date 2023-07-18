@@ -620,6 +620,67 @@ AutoFarm:AddToggle({
 	end)
 
 
+    local Section = AutoFarm:AddSection({
+		Name = "Auto Raid Pirates"
+	})
+
+
+    AutoFarm:AddToggle({
+        Name = "Auto Casle Raid",
+        Default = false,
+        Callback = function(Value)
+            Auto_Quest_Tushita_2 = Value
+        end    
+    })
+    
+    spawn(function()
+        while wait() do
+            if Auto_Quest_Tushita_2 then
+                pcall(function()
+                    local CFrameBoss = CFrame.new(-5496.17432, 313.768921, -2841.53027, 0.924894512, 7.37058015e-09, 0.380223751, 3.5881019e-08, 1, -1.06665446e-07, -0.380223751, 1.12297109e-07, 0.924894512)
+                    if (CFrame.new(-5539.3115234375, 313.800537109375, -2972.372314453125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if Auto_Quest_Tushita_2 and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                                if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 2000 then
+                                    repeat wait()
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                                                                            wait()
+                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,-10,0))
+                                    until v.Humanoid.Health <= 0 or not v.Parent or Auto_Quest_Tushita_2 == false
+                                end
+                            end
+                        end
+                    else
+                        if ((CFrameBoss).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 1500 then
+                            TP(CFrameBoss)
+                        else
+                            TelePBoss(CFrameBoss)
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	  local Section = AutoFarm:AddSection({
 		Name = "Bones"
 	})
