@@ -166,13 +166,7 @@ local SheriffSection = Tab3:CreateSection({
 --<>----<>----<>----<>----<>----<>----<>--
 
 --<>----<>----<>----<>----<>----<>----<>--
-ClientSection:CreateToggle({
-	Title = "CTRL click tp",
-	Default = false,
-	Callback = function(state)
-        getgenv().ClickTP = state;
-	end;
-});
+
 Mouse.Button1Down:connect(function()
     if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then return end;
     if not Mouse.Target then return end;
@@ -181,27 +175,8 @@ Mouse.Button1Down:connect(function()
 end)
 --<>----<>----<>----<>----<>----<>----<>--
 
-ClientSection:CreateSlider({
-	Title = "WalkSpeed",
-	Min = 16,
-	Max = 200,
-	Default = 16,
-	Callback = function(val)
-		getgenv().WS = tonumber(val)--tonumber(val / 10) or 0;
-        Humanoid.WalkSpeed = val;
-    end
-});
---<>----<>----<>----<>----<>----<>----<>--
-ClientSection:CreateSlider({
-	Title = "JumpPower",
-	Min = 50,
-	Max = 200,
-	Default = 50,
-	Callback = function(val)
-		getgenv().JP = tonumber(val)--tonumber(val / 10) or 0;
-        Humanoid.JumpPower = val;
-    end
-});
+
+
 --<>----<>----<>----<>----<>----<>----<>--
 local c;
 local h;
