@@ -81,7 +81,7 @@ local RaceV4 = Window:MakeTab({
 	Options = {"Melee", "Devil Fruit", "Sword"},
 	Callback = function(Value)
 		SelectWeapon = Value
-	end    
+	end   
 })
 
 
@@ -143,6 +143,25 @@ local RaceV4 = Window:MakeTab({
 	    end
 	    end
 	    end)
+
+
+        Setting:AddToggle({
+            Name = "Teleprot Bybass",
+            Default = false,
+            Callback = function(Value)
+                BypassTP = Value
+            end    
+        })
+
+--// Bypass Teleport
+function BTP(P1)
+	game.Players.LocalPlayer.Character.Head:Destroy()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
+	wait(1)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
+	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+	end
+	
 
 
 
@@ -698,7 +717,7 @@ AutoFarm:AddToggle({
 	 
 	spawn(function()
 	  while task.wait(.1) do
-	  local boneframe = CFrame.new(-9508.5673828125, 142.1398468017578, 5737.3603515625)
+	  local boneframe = CFrame.new(-9712.8642578125, 204.6700439453125, 6040.923828125)
 	  if AutoFarmBone then
 	  pcall(function()
 	    if BypassTP then
@@ -857,7 +876,7 @@ AutoFarm:AddToggle({
 	  end
 	  end
 	  else
-	    local cakepos = CFrame.new(-2077, 252, -12373)
+	    local cakepos = CFrame.new(-1891.74169921875, 272.5708312988281, -11915.3212890625)
 	  if BypassTP then
 	  if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - cakepos.Position).Magnitude > 2000 then
 	  BTP(cakepos)
