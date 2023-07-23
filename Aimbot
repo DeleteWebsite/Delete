@@ -5913,7 +5913,17 @@ Buff:Toggle("Fast Attack",true,function(v)
 _G.FastAttack2 = v
     end)   
 
-    local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
+
+	Buff:Toggle("Auto Active Race v3",false,function(v)
+		_G.Rv3 = v    
+	end)
+
+	Buff:Toggle("Auto Active Race v4",false,function(v)
+		_G.Rv4 = v    
+	end)
+	
+
+  local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
 CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 y = debug.getupvalues(CombatFrameworkR)[2]
 spawn(function()
@@ -5938,29 +5948,6 @@ spawn(function()
     end)
 end)
 
-Buff:Toggle("Auto Tween to Safe Zone",false,function(v)
-	_G.SaveModeSS = v    
-end)
-
-	Buff:Toggle("Auto Active Race v3",false,function(v)
-		_G.Rv3 = v    
-	end)
-
-	Buff:Toggle("Auto Active Race v4",false,function(v)
-		_G.Rv4 = v    
-	end)
-	
-spawn(function()
-    while wait() do
-		pcall(function()
-			if _G.SaveModeSS then
-                local MeIs = game.Players.LocalPlayer.Name
-				local MePosIs = game:GetService("Players")[MeIs].Character.HumanoidRootPart.CFrame
-                getgenv().ToTarget(MePosIs*CFrame.new(0,30,0))
-            end
-		end)
-    end
-end)
 
 
 
