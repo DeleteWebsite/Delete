@@ -138,10 +138,6 @@ function CFAHub:CreateWindow(title, gameName, intro)
         end
     end
 
-local keybind = keybind or Enum.KeyCode.RightControl
-local uihide = true
-local abc = false
-yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 
 
 
@@ -2302,27 +2298,5 @@ yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 end
 
 
-
-
-local ScreenGui1 = Instance.new("ScreenGui")
-local Closed = Instance.new("ImageButton")
-local UICorner = Instance.new("UICorner")
-
-ScreenGui1.Name = "ImageButton"
-ScreenGui1.Parent = game.CoreGui
-ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-Closed.Parent = ScreenGui1
-Closed.BackgroundColor3 = Color3.fromRGB(0, 244, 0)
-Closed.BorderSizePixel = 0
-Closed.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-Closed.Size = UDim2.new(0, 50, 0, 50)
-Closed.Draggable = true
-Closed.Image = "http://www.roblox.com/asset/?id="
-Closed.MouseButton1Down:connect(function()
-  game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
-  game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
-end)
-UICorner.Parent = Closed
 
 return CFAHub
