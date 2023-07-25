@@ -10234,7 +10234,7 @@ Pvp:Toggle("Teleport to Player",false,function(value)
 	end)
 end)
 
-Pvp:CircleLabel("-------------Aimbot (Working)-----------")
+Pvp:Label("-------------Aimbot (Working)-----------")
 
 
 Pvp:Toggle("Auto Aimbot Full SKill",false,function(value)
