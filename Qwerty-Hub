@@ -10879,21 +10879,22 @@ while wait() do
 end)
 
 
-Fruit:Toggle("Teleport To Fruit",function(value)
-	_G.Grabfruit = value
+ Fruit:Toggle("Teleport To Fruit",false,function(value)
+ _G.Grabfruit = value
 end)
 
 spawn(function()
-	while wait(.1) do
-		if _G.Grabfruit then
-			for i,v in pairs(game.Workspace:GetChildren()) do
-				if string.find(v.Name, "Fruit") then
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+			while wait(.1) do
+				if _G.Grabfruit then
+					for i,v in pairs(game.Workspace:GetChildren()) do
+						if string.find(v.Name, "Fruit") then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+						end
+					end
 				end
-			end
-		end
 end
 end)
+
 
 
 
