@@ -14,6 +14,9 @@ spawn(function()
 
 
 ---------------------------------
+	
+
+----------------
 if game.PlaceId == 2753915549 then
     World1 = true
 elseif game.PlaceId == 4442272183 then
@@ -2184,7 +2187,7 @@ ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageButton.Parent = ScreenGui
-ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.1208337, 0, 0.0952890813, 0)
 ImageButton.Size = UDim2.new(0, 50, 0, 50)
@@ -5667,6 +5670,15 @@ spawn(function()
 				else
 					topos(BonePos)
 				end
+
+
+                if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - BonePos.Position).Magnitude > 2000 then
+                    BTP(BonePos)
+                    wait(3)
+                    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - BonePos.Position).Magnitude < 2000 then
+                    topos(BonePos)
+                    end
+
 					StartMagnetBoneMon = false
 					topos(CFrame.new(-9506.234375, 172.130615234375, 6117.0771484375))
 					for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
@@ -5819,6 +5831,9 @@ end)
 
 Main:Label("-------------Bosses-----------")
 
+
+
+
 local Boss = {}
     
 for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
@@ -5882,10 +5897,15 @@ spawn(function()
 end)
 
 
+
+
+
 Main:Label("-------------Mirage Island-----------")
 
-Main:Toggle("Auto Mirage Island",_G.dao,function(Value)
-	_G.dao = Value
+Main:Toggle("Auto Mirage Island ( Drive Boat )",_G.dao,function(Value)
+	
+
+    _G.dao = Value
     
     if _G.dao then
     local args = {
@@ -5944,43 +5964,49 @@ Main:Toggle("Auto Mirage Island",_G.dao,function(Value)
     end
     end
     end) 
+
+
+
     
+
+Main:Toggle("Teleport To Mirage Island",_G.Mirage,function(Value)
+    _G.Mirage = Value
+end)
+
     spawn(function()
-        while wait() do
-            pcall(function()
-                if _G.dao then
-                    game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
-                    game:GetService("VirtualInputManager"):SendKeyEvent(true,"A",false,game)
-                end
-            end)
-        end
+        pcall(function()
+            while wait() do
+             if _G.Mirage then
+              if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+                function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/250,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Map.MysticIsland.PrimaryPart.CFrame*CFrame.new(0,250,0))
+                else
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Qwerty Hub"; -- the title (ofc)
+        Text = "Mirage Island Not Summon"; -- what the text says (ofc)
+        Icon = ""; -- the image if u want. 
+        Duration = 3; -- how long the notification should in secounds
+        })
+                if _G.MirageHop then
+                wait(6)
+                Hop()
+                end          
+            end
+    end
+    end
     end)
+    end)
+    
+
+    
+    
+    
+    Main:Button("Teleport To Gear",function()
+            topos(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
+          end)
 
 
-	Main:Toggle("Auto Find Gear",_G.TweenMGear,function(value)
-		_G.TweenMGear = value
-		StopTween(_G.TweenMGear)
-		end)
-		
-		spawn(function()
-			pcall(function()
-				while wait() do
-					if _G.TweenMGear then
-						if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
-							for i,v in pairs(game:GetService("Workspace").Map.MysticIsland:GetChildren()) do 
-								if v:IsA("MeshPart")then 
-									if v.Material ==  Enum.Material.Neon then  
-										topos(v.CFrame)
-									end
-								end
-							end
-						end
-					end
-				end
-			end)
-			end)
 
-			Main:Button("No Fog", function ()
+			Main:Button("Remove Fog", function ()
 				game:GetService("Lighting").LightingLayers:Destroy()
 				game:GetService("Lighting").Sky:Destroy()
 			end)
@@ -8114,7 +8140,7 @@ spawn(function()
     
 
  
-    Main:Toggle('Auto Kill Sea Beast',false, function(value)
+    Main:Toggle('Auto Summon Sea Beast (Beta)',false, function(value)
 		_G.dao1 = value
     
     
